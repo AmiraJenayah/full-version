@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import NumericInput from "react-numeric-input";
 import { mobileStyle } from "../forms/form-elements/number-input/InputStyles";
-import DataServices from "d:/react/full-version/src/services/services";
-import { Dropdown } from 'semantic-ui-react';
+import DataServices from "../services/services";
+import { Dropdown } from "semantic-ui-react";
 
 import {
   Card,
@@ -17,15 +17,13 @@ import {
   Button,
   Label,
 } from "reactstrap";
-import Select from "react-select";
 
 const competition = [
   { value: "Championnat d'espagne", text: "Championnat d'espagne" },
   { value: "Amical Ligue 1", text: "Amical Ligue 1" },
   { value: "Super Coupe super", text: "Super Coupe super" },
-]; 
+];
 const journe = [
-  
   { value: "1ère j", text: "1ère j" },
   { value: "2ème j", text: "2ème j" },
   { value: "3ème j", text: "3ème j" },
@@ -51,11 +49,6 @@ const joueA = [
   { value: "à Domicil", text: "à Domicil" },
   { value: "Exterieur", text: "Exterieur" },
 ];
-
-
-
-
-
 
 class FormMatch extends Component {
   constructor(props) {
@@ -188,45 +181,41 @@ class FormMatch extends Component {
                   <FormGroup className="form-label-group">
                     <h5 className="my-1 text-bold-600">Compétition</h5>
                     <Dropdown
-                     placeholder='Choisir compétition'
-                     fluid
-                     search
-                     className="React"
-                     classNamePrefix="select"
+                      placeholder="Choisir compétition"
+                      fluid
+                      search
+                      className="React"
                       value={this.state.competitionId}
                       onChange={this.onChangeCompetitionId}
                       name="competitionID"
                       options={competition}
-                   / >
-                    
+                    />
                   </FormGroup>
                 </Col>
                 <Col md="6" sm="12">
                   <FormGroup className="form-label-group">
                     <h5 className="my-1 text-bold-600">journe</h5>{" "}
                     <Dropdown
-                    placeholder="Choisir Journée"
-                     fluid
-                     search
+                      placeholder="Choisir Journée"
+                      fluid
+                      search
                       className="React"
-                      classNamePrefix="select"
                       name="journee"
                       options={journe}
                       value={this.state.journee}
                       onChange={this.onChangeJournee}
-                    /> 
+                    />
                   </FormGroup>
                 </Col>
                 <Col md="6" sm="12">
                   <FormGroup className="form-label-group">
                     <h5 className="my-1 text-bold-600">equipe</h5>{" "}
                     <Dropdown
-                    placeholder="equipe"
-                    fluid
-                    search
+                      placeholder="equipe"
+                      fluid
+                      search
                       className="React"
-                      classNamePrefix="select"
-                      defaultValue={equipe[0]}
+                     
                       name="equipe"
                       options={equipe}
                     />
@@ -242,12 +231,11 @@ class FormMatch extends Component {
                   <FormGroup className="form-label-group">
                     <h5 className="my-1 text-bold-600">jouè à</h5>{" "}
                     <Dropdown
-                    placeholder="jouè a"
-                    fluid
-                    search
+                      placeholder="jouè a"
+                      fluid
+                      search
                       className="React"
-                      classNamePrefix="select"
-                      defaultValue={joueA[0]}
+                      
                       name="joueA"
                       options={joueA}
                     />
@@ -262,14 +250,14 @@ class FormMatch extends Component {
                           type="radio"
                           name="basicRadio"
                           defaultChecked
-                          size="lg"
+                          bsSize="lg"
                         />
                         Retour
                       </Label>
                     </FormGroup>
                     <FormGroup check inline>
                       <Label check>
-                        <Input type="radio" name="basicRadio" size="lg" /> Aller
+                        <Input type="radio" name="basicRadio" bsSize="lg" /> Aller
                       </Label>
                     </FormGroup>
                   </FormGroup>

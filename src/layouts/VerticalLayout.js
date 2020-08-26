@@ -72,7 +72,6 @@ class VerticalLayout extends PureComponent {
         : null;
     }
   }
-
   componentDidUpdate(prevProps, prevState) {
     let {
       location: { pathname },
