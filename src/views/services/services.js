@@ -1,14 +1,11 @@
 import http from "../../http-common";
 class DataServices {
-    getAll() {
-        return http.get("/match");
-      }
-      create(data) {
-        return http.post("/match", data);
-      }
+  getAll() {
+    return http.get("/match");
+  }
+  create(data) {
+    return http.post("/match", data);
+  }
 }
 
-
-
-
-export default new DataServices;
+export default new DataServices();
