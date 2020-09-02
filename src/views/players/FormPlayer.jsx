@@ -21,6 +21,159 @@ import { Segment } from 'semantic-ui-react';
 
 
 class FormPlayer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.onChangeFirst_name = this.onChangeFirst_name.bind(this);
+    this.onChangeLast_name = this.onChangeLast_name.bind(this);
+    this.onChangeBirthday = this.onChangeBirthday.bind(this);
+    this.onChangeBirthplace = this.onChangeBirthplace.bind(this);
+
+    this.onChangeEmail = this.onChangeEmail.bind(this);
+    this.onChangeNum_tenue = this.onChangeNum_tenue.bind(this);
+    this.onChangeTaille = this.onChangeTaille.bind(this);
+    this.onChangeDate_arrive = this.onChangeDate_arrive.bind(this);
+    this.onChangePoids = this.onChangePoids.bind(this);
+
+    this.onChangeMutation = this.onChangeMutation.bind(this);
+    this.onChangeLast_equipe = this.onChangeLast_equipe.bind(this);
+    this.onChangeMeilleur_pied = this.onChangeMeilleur_pied.bind(this);
+    this.onChangeAdresse_id = this.onChangeAdresse_id.bind(this);
+    this.onChangeContact_id = this.onChangeContact_id.bind(this);
+    this.onChangeNum_license = this.onChangeNum_license.bind(this);
+    this.onChangePhoto = this.onChangePhoto.bind(this);
+    this.onChangeNumber_anneJoué= this.onChangeNumber_anneJoué.bind(this);
+    this.onChangeMalade_connu = this.onChangeMalade_connu.bind(this);
+    this.onChangeMalade= this.onChangeMalade.bind(this);
+    this.onChangeTratiement_suivre = this.onChangeTratiement_suivre.bind(this);
+    this.onChangeScolaire_id = this.onChangeScolaire_id.bind(this);
+
+    this.state = {
+      id: null,
+      first_name: "",
+      last_name: "",
+      birthday: "",
+      birthplace: "",
+      email: "",
+      num_tenue: "",
+      taille: "",
+      date_arrive: "",
+      poids: "",
+      mutation: "",
+      last_equipe: "",
+      meilleur_pied: "",
+      adresse_id: "",
+      contact_id: "",
+      num_license: "",
+      photo: "",
+      number_anneJoué: "",
+      malade_connu: "",
+      malade: "",
+      tratiement_suivre: "",
+      scolaire_id: "",
+   
+
+      published: false,
+      submitted: false,
+    };
+  }
+
+  onChangeFirst_name(e) {
+    this.setState({
+      first_name: e.target.value,
+    });
+  }  onChangeLast_name(e) {
+    this.setState({
+      last_name: e.target.value,
+    });
+  }  onChangeBirthday(e) {
+    this.setState({
+      birthday: e.target.value,
+    });
+  }  onChangeBirthplace(e) {
+    this.setState({
+      birthplace: e.target.value,
+    });
+  }  onChangeEmail(e) {
+    this.setState({
+      email: e.target.value,
+    });
+  }  onChangeNum_tenue(e) {
+    this.setState({
+      num_tenue: e.target.value,
+    });
+  }  onChangeTaille(e) {
+    this.setState({
+      taille: e.target.value,
+    });
+  }  onChangeDate_arrive(e) {
+    this.setState({
+      date_arrive: e.target.value,
+    });
+  }  onChangePoids(e) {
+    this.setState({
+      poids: e.target.value,
+    });
+  }  onChangeMutation(e) {
+    this.setState({
+      mutation: e.target.value,
+    });
+  }  onChangeLast_equipe(e) {
+    this.setState({
+      last_equipe: e.target.value,
+    });
+  }  onChangeMeilleur_pied(e) {
+    this.setState({
+      meilleur_pied: e.target.value,
+    });
+  }
+
+  onChangeAdresse_id(e) {
+    this.setState({
+      adresse_id: e.target.value,
+    });
+  }
+  onChangeContact_id(e) {
+    this.setState({
+      contact_id: e.target.value,
+    });
+  }
+  onChangeNum_license(e) {
+    this.setState({
+      num_license: e.target.value,
+    });
+  }
+  onChangePhoto(e) {
+    this.setState({
+      photo: e.target.value,
+    });
+  }
+  onChangeNumber_anneJoué(e) {
+    this.setState({
+      number_anneJoué: e.target.value,
+    });
+  }
+  onChangeMalade_connu(e) {
+    this.setState({
+      malade_connu: e.target.value,
+    });
+  }
+  onChangeMalade(e) {
+    this.setState({
+      malade: e.target.value,
+    });
+  }
+  onChangeTratiement_suivre(e) {
+    this.setState({
+      tratiement_suivre: e.target.value,
+    });
+  }
+  onChangeScolaire_id(e) {
+    this.setState({
+      scolaire_id: e.target.value,
+    });
+  }
+
+
 
 
   handleChange = (e) => this.setState({ rating: e.target.value })

@@ -5,7 +5,7 @@ import { Check } from "react-feather"
 import { connect } from "react-redux"
 import { signupWithFirebase } from "../../../../redux/actions/auth/registerActions"
 import { history } from "../../../../history"
-class RegisterFirebase extends React.Component {
+/* class RegisterFirebase extends React.Component {
   state = {
     email: "",
     password: "",
@@ -20,10 +20,10 @@ class RegisterFirebase extends React.Component {
       this.state.password,
       this.state.name
     )
-  }
-
+  } */
+ /* 
   render() {
-    return (
+   return (
       <Form onSubmit={this.handleRegister}>
         <FormGroup className="form-label-group">
           <Input
@@ -87,13 +87,13 @@ class RegisterFirebase extends React.Component {
         </div>
       </Form>
     )
-  }
-}
-const mapStateToProps = state => {
+  } 
+}*/
+/* const mapStateToProps = state => {
   return {
     values: state.auth.register
   }
 }
 export default connect(mapStateToProps, { signupWithFirebase })(
   RegisterFirebase
-)
+) */

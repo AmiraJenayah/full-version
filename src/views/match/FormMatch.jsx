@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import NumericInput from "react-numeric-input";
 import { mobileStyle } from "../forms/form-elements/number-input/InputStyles";
-import DataServices from "../services/services";
+import axios from "../../http-common";
 import { Dropdown } from "semantic-ui-react";
 
 import {
@@ -77,12 +77,12 @@ class FormMatch extends Component {
       submitted: false,
     };
   }
-
   onChangeCompetitionId(e) {
     this.setState({
       competitionId: e.target.value,
     });
   }
+
   onChangeJournee(e) {
     this.setState({
       journee: e.target.value,
@@ -118,8 +118,10 @@ class FormMatch extends Component {
       arbitre: e.target.value,
     });
   }
+
   saveMatch() {
-    var data = {
+    this.setState({ loading: true });
+    const order = {
       competitionId: this.state.competitionId,
       journee: this.state.journee,
       equipe_id: this.state.equipe_id,
@@ -129,28 +131,16 @@ class FormMatch extends Component {
       terrain: this.state.terrain,
       arbitre: this.state.arbitre,
     };
-    DataServices.create(data)
-      .then((response) => {
-        this.setState({
-          id: response.data.id,
-          competitionId: response.data.competitionId,
-          journee: response.data.journee,
-          equipe_id: response.data.equipe_id,
-          adversaire: response.data.adversaire,
-          joue_a: response.data.joue_a,
-          extra_time: response.data.extra_time,
-          terrain: response.data.terrain,
-          arbitre: response.data.arbitre,
-          published: response.data.published,
-
-          submitted: true,
-        });
-        console.log(response.data);
+    axios
+      .post("/match", order)
+      .then((res) => {
+        this.setState({ loading: false, purchasing: false });
       })
-      .catch((e) => {
-        console.log(e);
+      .catch((error) => {
+        this.setState({ loading: false, purchasing: false });
       });
   }
+
   newMatch() {
     this.setState({
       id: null,
@@ -175,7 +165,7 @@ class FormMatch extends Component {
             <CardTitle>Multiple Column</CardTitle>
           </CardHeader>
           <CardBody>
-            <Form className="mt-2">
+            <Form className="mt-2" onSubmit={this.saveMatch}>
               <Row>
                 <Col md="6" sm="12">
                   <FormGroup className="form-label-group">
@@ -215,7 +205,6 @@ class FormMatch extends Component {
                       fluid
                       search
                       className="React"
-                     
                       name="equipe"
                       options={equipe}
                     />
@@ -235,7 +224,6 @@ class FormMatch extends Component {
                       fluid
                       search
                       className="React"
-                      
                       name="joueA"
                       options={joueA}
                     />
@@ -257,7 +245,8 @@ class FormMatch extends Component {
                     </FormGroup>
                     <FormGroup check inline>
                       <Label check>
-                        <Input type="radio" name="basicRadio" bsSize="lg" /> Aller
+                        <Input type="radio" name="basicRadio" bsSize="lg" />{" "}
+                        Aller
                       </Label>
                     </FormGroup>
                   </FormGroup>
@@ -296,7 +285,6 @@ class FormMatch extends Component {
                       color="primary"
                       type="submit"
                       className="mr-1 mb-1"
-                      onClick={this.saveMatch}
                     >
                       Submit
                     </Button.Ripple>

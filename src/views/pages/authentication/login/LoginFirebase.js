@@ -7,14 +7,14 @@ import { history } from "../../../../history"
 import googleSvg from "../../../../assets/img/svg/google.svg"
 import { connect } from "react-redux"
 import {
-  submitLoginWithFireBase,
+  //submitLoginWithFireBase,
   loginWithFB,
   loginWithTwitter,
   loginWithGoogle,
   loginWithGithub
 } from "../../../../redux/actions/auth/loginActions"
 
-class LoginFirebase extends React.Component {
+/* class LoginFirebase extends React.Component {
   state = {
     email: "demo@demo.com",
     password: "demodemo",
@@ -135,7 +135,7 @@ class LoginFirebase extends React.Component {
       </React.Fragment>
     )
   }
-}
+} */
 
 const mapStateToProps = state => {
   return {
@@ -143,10 +143,10 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {
-  submitLoginWithFireBase,
+/* export default connect(mapStateToProps, {
   loginWithFB,
   loginWithTwitter,
   loginWithGoogle,
   loginWithGithub
-})(LoginFirebase)
+})()
+ */

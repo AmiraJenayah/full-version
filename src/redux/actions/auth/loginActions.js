@@ -1,77 +1,17 @@
-import * as firebase from "firebase/app"
+// import * as firebase from "firebase/app"
 import { history } from "../../../history"
-import "firebase/auth"
-import "firebase/database"
+//import "firebase/auth"
+//import "firebase/database"
 import axios from "axios"
-import { config } from "../../../authServices/firebase/firebaseConfig"
 
-// Init firebase if not already initialized
-if (!firebase.apps.length) {
-  firebase.initializeApp(config)
-}
-
-let firebaseAuth = firebase.auth()
-
-// const initAuth0 = new auth0.WebAuth(configAuth)
-
-export const submitLoginWithFireBase = (email, password, remember) => {
-  return dispatch => {
-    let userEmail = null,
-      loggedIn = false
-    firebaseAuth
-      .signInWithEmailAndPassword(email, password)
-      .then(result => {
-        firebaseAuth.onAuthStateChanged(user => {
-          result.user.updateProfile({
-            displayName: "Admin"
-          })
-          let name = result.user.displayName
-          if (user) {
-            userEmail = user.email
-            loggedIn = true
-            dispatch({
-              type: "LOGIN_WITH_EMAIL",
-              payload: {
-                email: userEmail,
-                name,
-                isSignedIn: loggedIn,
-                loggedInWith: "firebase"
-              }
-            })
-          }
-          if (user && remember) {
-            firebase
-              .auth()
-              .setPersistence(firebase.auth.Auth.Persistence.SESSION)
-              .then(() => {
-                dispatch({
-                  type: "LOGIN_WITH_EMAIL",
-                  payload: {
-                    email: userEmail,
-                    name,
-                    isSignedIn: loggedIn,
-                    remember: true,
-                    loggedInWith: "firebase"
-                  }
-                })
-              })
-          }
-          history.push("/")
-        })
-      })
-      .catch(error => {
-        console.log(error)
-      })
-  }
-}
-
+/* 
 export const loginWithFB = () => {
   return dispatch => {
     let provider = new firebase.auth.FacebookAuthProvider()
     provider.setCustomParameters({
       display: "popup"
     })
-    firebaseAuth
+ //   firebaseAuth
       .signInWithPopup(provider)
       .then(result => {
         // This gives you a Facebook Access Token. You can use it to access the Facebook API.
@@ -92,12 +32,12 @@ export const loginWithFB = () => {
         console.log(error)
       })
   }
-}
-
+} */
+/* 
 export const loginWithTwitter = () => {
   return dispatch => {
     let provider = new firebase.auth.TwitterAuthProvider()
-    firebaseAuth
+    //firebaseAuth
       .signInWithPopup(provider)
       .then(function(result) {
         let token = result.credential.accessToken,
@@ -120,12 +60,12 @@ export const loginWithTwitter = () => {
         console.log(error)
       })
   }
-}
+} */
 
-export const loginWithGoogle = () => {
+/* export const loginWithGoogle = () => {
   return dispatch => {
     let provider = new firebase.auth.GoogleAuthProvider()
-    firebaseAuth
+  //  firebaseAuth
       .signInWithPopup(provider)
       .then(function(result) {
         let token = result.credential.accessToken,
@@ -148,12 +88,12 @@ export const loginWithGoogle = () => {
         console.log(error)
       })
   }
-}
-
+} */
+/* 
 export const loginWithGithub = () => {
   return dispatch => {
     let provider = new firebase.auth.GithubAuthProvider()
-    firebaseAuth
+    //firebaseAuth
       .signInWithPopup(provider)
       .then(function(result) {
         let token = result.credential.accessToken,
@@ -177,30 +117,30 @@ export const loginWithGithub = () => {
         console.log(error)
       })
   }
-}
+} */
 
 export const loginWithJWT = user => {
   return dispatch => {
     axios
-      .post("/api/authenticate/login/user", {
+      .post("http://127.0.0.1:8000/api/login", {
         email: user.email,
-        password: user.password
+        password: user.password,
       })
-      .then(response => {
-        var loggedInUser
+      .then((response) => {
+        var loggedInUser;
 
         if (response.data) {
-          loggedInUser = response.data.user
+          loggedInUser = response.data.user;
 
           dispatch({
             type: "LOGIN_WITH_JWT",
-            payload: { loggedInUser, loggedInWith: "jwt" }
-          })
+            payload: { loggedInUser, loggedInWith: "jwt" },
+          });
 
-          history.push("/")
+          history.push("/");
         }
       })
-      .catch(err => console.log(err))
+      .catch((err) => console.log(err));
   }
 }
 
@@ -211,12 +151,7 @@ export const logoutWithJWT = () => {
   }
 }
 
-export const logoutWithFirebase = user => {
-  return dispatch => {
-    dispatch({ type: "LOGOUT_WITH_FIREBASE", payload: {} })
-    history.push("/pages/login")
-  }
-}
+
 
 export const changeRole = role => {
   return dispatch => dispatch({ type: "CHANGE_ROLE", userRole: role })

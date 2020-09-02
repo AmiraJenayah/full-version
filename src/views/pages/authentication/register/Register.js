@@ -13,7 +13,7 @@ import {
   TabPane
 } from "reactstrap"
 import classnames from "classnames"
-import RegisterFirebase from "./RegisterFirebase"
+//import RegisterFirebase from "./RegisterFirebase"
 import RegisterAuth0 from "./RegisterAuth0"
 import RegisterJWT from "./RegisterJWT"
 import registerImg from "../../../../assets/img/pages/register.jpg"
@@ -102,7 +102,7 @@ class Register extends React.Component {
                         <RegisterJWT />
                       </TabPane>
                       <TabPane tabId="2">
-                        <RegisterFirebase />
+                   
                       </TabPane>
                       <TabPane tabId="3">
                         <RegisterAuth0 />

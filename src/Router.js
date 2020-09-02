@@ -24,6 +24,9 @@ const calendar = lazy(() => import("./views/apps/calendar/Calendar"));
 const shop = lazy(() => import("./views/apps/ecommerce/shop/Shop"));
 const createPlayer = lazy(() => import("./views/players/CreatePlayer"));
 const createMatch = lazy(() => import("./views/match/CreateMatch"));
+const ListMatch = lazy(() => import("./views/match/ListMatch"));
+
+
 
 const wishlist = lazy(() => import("./views/apps/ecommerce/wishlist/Wishlist"));
 const checkout = lazy(() => import("./views/apps/ecommerce/cart/Cart"));
@@ -280,6 +283,11 @@ class AppRouter extends React.Component {
           <AppRoute
             path="/match/createMatch"
             component={createMatch}
+            permission="admin"
+          />
+          <AppRoute
+            path="/match/ListMatch"
+            component={ListMatch}
             permission="admin"
           />
           <AppRoute path="/data-list/list-view" component={listView} />

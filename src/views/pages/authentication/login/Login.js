@@ -15,7 +15,7 @@ import classnames from "classnames"
 import loginImg from "../../../../assets/img/pages/login.png"
 import "../../../../assets/scss/pages/authentication.scss"
 import LoginAuth0 from "./LoginAuth0"
-import LoginFirebase from "./LoginFirebase"
+// import LoginFirebase from "./LoginFirebase"
 import LoginJWT from "./LoginJWT"
 
 class Login extends React.Component {
@@ -100,7 +100,7 @@ class Login extends React.Component {
                       <LoginJWT />
                     </TabPane>
                     <TabPane tabId="2">
-                      <LoginFirebase />
+                     
                     </TabPane>
                     <TabPane tabId="3">
                       <LoginAuth0 />
