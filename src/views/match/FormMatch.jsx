@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import NumericInput from "react-numeric-input";
-import { mobileStyle } from "../forms/form-elements/number-input/InputStyles";
-import axios from "../../http-common";
 import { Dropdown } from "semantic-ui-react";
+import { addMatch } from "../../redux/actions/match/matchform";
+import { connect } from "react-redux";
+
 
 import {
   Card,
@@ -15,7 +15,7 @@ import {
   Input,
   Form,
   Button,
-  Label,
+  
 } from "reactstrap";
 
 const competition = [
@@ -51,20 +51,32 @@ const joueA = [
 ];
 
 class FormMatch extends Component {
-  constructor(props) {
-    super(props);
-    this.onChangeCompetitionId = this.onChangeCompetitionId.bind(this);
-    this.onChangeJournee = this.onChangeJournee.bind(this);
-    this.onChangeEquipeId = this.onChangeEquipeId.bind(this);
-    this.onChangeAdversaire = this.onChangeAdversaire.bind(this);
-    this.onChangeJoueA = this.onChangeJoueA.bind(this);
-    this.onChangeExtraTime = this.onChangeExtraTime.bind(this);
-    this.onChangeTerrain = this.onChangeTerrain.bind(this);
-    this.onChangeArbitre = this.onChangeArbitre.bind(this);
-    this.saveMatch = this.saveMatch.bind(this);
-    this.newMatch = this.newMatch.bind(this);
-    this.state = {
-      id: null,
+  
+  state = {
+    id: null,
+    competitionId: "",
+    journee: "",
+    equipe_id: "",
+    adversaire: "",
+    joue_a: "",
+    extra_time: "",
+    terrain: "",
+    arbitre: "",
+    published: false,
+    submitted: false,
+  };
+
+  handleTextChange = (event) => {
+    const {
+      target: { name, value },
+    } = event;
+    this.setState({ [name]: value });
+  };
+
+  handleOnSubmit = (event) => {
+    event.preventDefault();
+    this.props.addMatch(this.state);
+    this.setState({
       competitionId: "",
       journee: "",
       equipe_id: "",
@@ -73,89 +85,9 @@ class FormMatch extends Component {
       extra_time: "",
       terrain: "",
       arbitre: "",
-      published: false,
-      submitted: false,
-    };
-  }
-  onChangeCompetitionId(e) {
-    this.setState({
-      competitionId: e.target.value,
+    
     });
-  }
-
-  onChangeJournee(e) {
-    this.setState({
-      journee: e.target.value,
-    });
-  }
-  onChangeEquipeId(e) {
-    this.setState({
-      equipe_id: e.target.value,
-    });
-  }
-  onChangeAdversaire(e) {
-    this.setState({
-      adversaire: e.target.value,
-    });
-  }
-  onChangeJoueA(e) {
-    this.setState({
-      joue_a: e.target.value,
-    });
-  }
-  onChangeExtraTime(e) {
-    this.setState({
-      extra_time: e.target.value,
-    });
-  }
-  onChangeTerrain(e) {
-    this.setState({
-      terrain: e.target.value,
-    });
-  }
-  onChangeArbitre(e) {
-    this.setState({
-      arbitre: e.target.value,
-    });
-  }
-
-  saveMatch() {
-    this.setState({ loading: true });
-    const order = {
-      competitionId: this.state.competitionId,
-      journee: this.state.journee,
-      equipe_id: this.state.equipe_id,
-      adversaire: this.state.adversaire,
-      joue_a: this.state.joue_a,
-      extra_time: this.state.extra_time,
-      terrain: this.state.terrain,
-      arbitre: this.state.arbitre,
-    };
-    axios
-      .post("/match", order)
-      .then((res) => {
-        this.setState({ loading: false, purchasing: false });
-      })
-      .catch((error) => {
-        this.setState({ loading: false, purchasing: false });
-      });
-  }
-
-  newMatch() {
-    this.setState({
-      id: null,
-      competitionId: "",
-      journee: "",
-      equipe_id: "",
-      adversaire: "",
-      joue_a: "",
-      extra_time: "",
-      terrain: "",
-      arbitre: "",
-      published: false,
-      submitted: false,
-    });
-  }
+  };
 
   render() {
     return (
@@ -165,7 +97,7 @@ class FormMatch extends Component {
             <CardTitle>Multiple Column</CardTitle>
           </CardHeader>
           <CardBody>
-            <Form className="mt-2" onSubmit={this.saveMatch}>
+            <Form className="mt-2" onSubmit={this.handleOnSubmit}>
               <Row>
                 <Col md="6" sm="12">
                   <FormGroup className="form-label-group">
@@ -175,8 +107,8 @@ class FormMatch extends Component {
                       fluid
                       search
                       className="React"
-                      value={this.state.competitionId}
-                      onChange={this.onChangeCompetitionId}
+                      value={this.state.name}
+                      onChange={this.handleTextChange}
                       name="competitionID"
                       options={competition}
                     />
@@ -192,8 +124,8 @@ class FormMatch extends Component {
                       className="React"
                       name="journee"
                       options={journe}
-                      value={this.state.journee}
-                      onChange={this.onChangeJournee}
+                      value={this.state.name}
+                      onChange={this.handleTextChange}
                     />
                   </FormGroup>
                 </Col>
@@ -206,6 +138,8 @@ class FormMatch extends Component {
                       search
                       className="React"
                       name="equipe"
+                      value={this.state.name}
+                      onChange={this.handleTextChange}
                       options={equipe}
                     />
                   </FormGroup>
@@ -213,7 +147,13 @@ class FormMatch extends Component {
                 <Col md="6" sm="12">
                   <FormGroup className="form-label-group">
                     <h5 className="my-1 text-bold-600">Adversaire</h5>{" "}
-                    <Input type="text" name="Adversaire" placeholder=" " />
+                    <Input
+                      type="text"
+                      name="Adversaire"
+                      value={this.state.name}
+                      onChange={this.handleTextChange}
+                      placeholder=" "
+                    />
                   </FormGroup>
                 </Col>
                 <Col md="6" sm="12">
@@ -225,11 +165,13 @@ class FormMatch extends Component {
                       search
                       className="React"
                       name="joueA"
+                      value={this.state.name}
+                      onChange={this.handleTextChange}
                       options={joueA}
                     />
                   </FormGroup>
                 </Col>
-                <Col md="6" sm="12">
+                {/*   <Col md="6" sm="12">
                   <FormGroup className="form-label-group">
                     <h5 className="my-1 text-bold-600">Match</h5>{" "}
                     <FormGroup check inline>
@@ -239,43 +181,74 @@ class FormMatch extends Component {
                           name="basicRadio"
                           defaultChecked
                           bsSize="lg"
+                          name=""
+                          
+                          
                         />
                         Retour
                       </Label>
                     </FormGroup>
                     <FormGroup check inline>
                       <Label check>
-                        <Input type="radio" name="basicRadio" bsSize="lg" />{" "}
+                        <Input
+                          type="radio"
+                          name="basicRadio"
+                        
+                          bsSize="lg"
+                        />{" "}
                         Aller
                       </Label>
                     </FormGroup>
                   </FormGroup>
-                </Col>
+                </Col> */}
 
                 <Col sm="12">
                   <FormGroup className="form-label-group">
                     <h5 className="my-1 text-bold-600">Temps Total (min)</h5>{" "}
-                    <NumericInput
+                    {/*  <NumericInput
                       mobile
                       autoComplete="on"
                       autoCorrect="on"
                       autoFocus={true}
-                      value={80}
+                      value={10}
                       style={mobileStyle}
+                      name="extra_time"
+                      onChange={this.handleTextChange}
+                    /> */}
+                    <input
+                      sm="12"
+                      min={0}
+                      max={20}
+                      type="number"
+                      name="extra_time"
+                      onChange={this.handleTextChange}
+                      value={this.state.name}
                     />
                   </FormGroup>
                 </Col>
 
                 <Col md="6" sm="12">
                   <FormGroup className="form-label-group">
-                    <h5 className="my-1 text-bold-600">Stade</h5>{" "}
-                    <Input type="text" name="Stade" placeholder=" " />
+                    <h5 className="my-1 text-bold-600">terrain</h5>{" "}
+                    <Input
+                      type="text"
+                      name="terrain"
+                      value={this.state.name}
+                      onChange={this.handleTextChange}
+                      placeholder=" "
+                    />
                   </FormGroup>
                 </Col>
                 <Col md="6" sm="12">
                   <FormGroup className="form-label-group">
                     <h5 className="my-1 text-bold-600">Arbitre</h5>{" "}
-                    <Input type="text" name="Arbitre" placeholder=" " />
+                    <Input
+                      type="text"
+                      name="arbitre"
+                      value={this.state.name}
+                      onChange={this.handleTextChange}
+                      placeholder=" "
+                    />
                   </FormGroup>
                 </Col>
 
@@ -306,4 +279,4 @@ class FormMatch extends Component {
     );
   }
 }
-export default FormMatch;
+export default connect(null, { addMatch })(FormMatch);

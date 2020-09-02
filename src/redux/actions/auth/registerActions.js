@@ -1,11 +1,6 @@
 //import * as firebase from "firebase/app"
 import { history } from "../../../history"
-//import "firebase/auth"
-//import "firebase/database"
-import axios from "axios"
-// import { config } from "../../../authServices/firebase/firebaseConfig"
-
-// Init firebase if not already initialized
+import axios from "axios";
 
 
 
