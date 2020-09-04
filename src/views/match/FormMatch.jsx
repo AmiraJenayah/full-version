@@ -3,7 +3,6 @@ import { Dropdown } from "semantic-ui-react";
 import { addMatch } from "../../redux/actions/match/matchform";
 import { connect } from "react-redux";
 
-
 import {
   Card,
   CardHeader,
@@ -15,7 +14,6 @@ import {
   Input,
   Form,
   Button,
-  
 } from "reactstrap";
 
 const competition = [
@@ -51,19 +49,24 @@ const joueA = [
 ];
 
 class FormMatch extends Component {
-  
   state = {
-    id: null,
+   
     competitionId: "",
-    journee: "",
-    equipe_id: "",
     adversaire: "",
     joue_a: "",
-    extra_time: "",
+    journee: "",
     terrain: "",
     arbitre: "",
-    published: false,
-    submitted: false,
+    equipe_id: "",
+    extra_time: "",
+    score: "",
+    user_id:'',
+    owner_id:'',
+
+  };
+  handleDropdownChange = (event, data) => {
+    let { name, value } = data;
+    this.setState({ [name]: value });
   };
 
   handleTextChange = (event) => {
@@ -77,15 +80,19 @@ class FormMatch extends Component {
     event.preventDefault();
     this.props.addMatch(this.state);
     this.setState({
+   
       competitionId: "",
-      journee: "",
-      equipe_id: "",
       adversaire: "",
       joue_a: "",
-      extra_time: "",
+      journee: "",
       terrain: "",
       arbitre: "",
-    
+      equipe_id: "",
+      extra_time: "",
+      score: "",
+      user_id: "",
+      owner_id: "",
+      
     });
   };
 
@@ -108,8 +115,8 @@ class FormMatch extends Component {
                       search
                       className="React"
                       value={this.state.name}
-                      onChange={this.handleTextChange}
-                      name="competitionID"
+                      onChange={this.handleDropdownChange}
+                      name="competitionId"
                       options={competition}
                     />
                   </FormGroup>
@@ -125,7 +132,7 @@ class FormMatch extends Component {
                       name="journee"
                       options={journe}
                       value={this.state.name}
-                      onChange={this.handleTextChange}
+                      onChange={this.handleDropdownChange}
                     />
                   </FormGroup>
                 </Col>
@@ -139,7 +146,7 @@ class FormMatch extends Component {
                       className="React"
                       name="equipe"
                       value={this.state.name}
-                      onChange={this.handleTextChange}
+                      onChange={this.handleDropdownChange}
                       options={equipe}
                     />
                   </FormGroup>
@@ -166,57 +173,42 @@ class FormMatch extends Component {
                       className="React"
                       name="joueA"
                       value={this.state.name}
-                      onChange={this.handleTextChange}
+                      onChange={this.handleDropdownChange}
                       options={joueA}
                     />
                   </FormGroup>
                 </Col>
-                {/*   <Col md="6" sm="12">
-                  <FormGroup className="form-label-group">
-                    <h5 className="my-1 text-bold-600">Match</h5>{" "}
-                    <FormGroup check inline>
-                      <Label check>
-                        <Input
-                          type="radio"
-                          name="basicRadio"
-                          defaultChecked
-                          bsSize="lg"
-                          name=""
-                          
-                          
-                        />
-                        Retour
-                      </Label>
-                    </FormGroup>
-                    <FormGroup check inline>
-                      <Label check>
-                        <Input
-                          type="radio"
-                          name="basicRadio"
-                        
-                          bsSize="lg"
-                        />{" "}
-                        Aller
-                      </Label>
-                    </FormGroup>
-                  </FormGroup>
-                </Col> */}
 
-                <Col sm="12">
+                <Col sm="2">
+                  <FormGroup className="form-label-group">
+                    <h5 className="my-1 text-bold-600">user id</h5>{" "}
+                    <input
+                      sm="2"
+                      type="number"
+                      name="user_id"
+                      onChange={this.handleTextChange}
+                      value={this.state.name}
+                    />
+                  </FormGroup>
+                </Col>
+                <Col sm="2">
+                  <FormGroup className="form-label-group">
+                    <h5 className="my-1 text-bold-600">owner id </h5>{" "}
+                    <input
+                      sm="2"
+                      type="number"
+                      name="owner_id"
+                      onChange={this.handleTextChange}
+                      value={this.state.name}
+                    />
+                  </FormGroup>
+                </Col>
+
+                <Col sm="4">
                   <FormGroup className="form-label-group">
                     <h5 className="my-1 text-bold-600">Temps Total (min)</h5>{" "}
-                    {/*  <NumericInput
-                      mobile
-                      autoComplete="on"
-                      autoCorrect="on"
-                      autoFocus={true}
-                      value={10}
-                      style={mobileStyle}
-                      name="extra_time"
-                      onChange={this.handleTextChange}
-                    /> */}
                     <input
-                      sm="12"
+                      sm="4"
                       min={0}
                       max={20}
                       type="number"
