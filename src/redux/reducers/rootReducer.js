@@ -8,6 +8,7 @@ import auth from "./auth/"
 import navbar from "./navbar/Index"
 import dataList from "./data-list/"
 import matchReducer from "./match/matchReducer"
+import playerReducer from "./player/playerReducer"
 
 const rootReducer = combineReducers({
   calendar: calenderReducer,
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
   auth: auth,
   navbar: navbar,
   dataList: dataList,
-  match:matchReducer
+  match:matchReducer,
+  player:playerReducer
 })
 
 export default rootReducer
