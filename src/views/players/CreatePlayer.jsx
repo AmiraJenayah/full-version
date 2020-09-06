@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import FormPlayer from './FormPlayer';
 
-class CreatePlayer1 extends Component {
+class CreatePlayer extends Component {
   render() {
     return (
       <div>
@@ -11,4 +11,4 @@ class CreatePlayer1 extends Component {
   }
 }
 
-export default CreatePlayer1 ;
+export default CreatePlayer ;

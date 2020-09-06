@@ -1,11 +1,11 @@
 import React from "react"
 import { Card, CardBody } from "reactstrap"
 import Swiper from "react-id-swiper"
-import img1 from "../../assets/img/slider/banner-1.jpg"
-import img2 from "../../assets/img/slider/banner-2.jpg"
-import img3 from "../../assets/img/slider/banner-3.jpg"
-import img4 from "../../assets/img/slider/banner-4.jpg"
-import img5 from "../../assets/img/slider/banner-5.jpg"
+import img1 from "../../assets/img/slider/ply1.jpg"
+import img2 from "../../assets/img/slider/ply2.jpg"
+import img3 from "../../assets/img/slider/ply3.jpg"
+import img4 from "../../assets/img/slider/ply4.jpg"
+import img5 from "../../assets/img/slider/ply5.jpg"
 
 const params = {
   spaceBetween: 30,

@@ -5,7 +5,7 @@ import Wizard from "../../components/@vuexy/wizard/WizardComponent";
 import { connect } from "react-redux";
 import {addPlayer} from '../../redux/actions/player/playerAction';
 import {
- Form,
+
   FormGroup,
   Input,
   Label,
@@ -15,7 +15,6 @@ import {
   CardBody,
   CardTitle,
   CardHeader,
-
   // Button
 } from "reactstrap";
 import { Segment } from "semantic-ui-react";

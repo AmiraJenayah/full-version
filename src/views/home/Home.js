@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Row, Col} from "reactstrap";
-
-
 import Swiper from '../../extensions/swiper/Swiper';
 import CalendarHome from './CalendarHome';
 

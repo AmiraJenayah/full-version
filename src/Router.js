@@ -25,6 +25,8 @@ const shop = lazy(() => import("./views/apps/ecommerce/shop/Shop"));
 const createPlayer = lazy(() => import("./views/players/CreatePlayer"));
 const createMatch = lazy(() => import("./views/match/CreateMatch"));
 const ListMatch = lazy(() => import("./views/match/ListMatch"));
+const PlayerList = lazy(() => import("./views/players/PlayerList"));
+
 
 
 
@@ -275,6 +277,11 @@ class AppRouter extends React.Component {
             component={checkout}
             permission="admin"
           />
+
+
+
+
+          
           <AppRoute
             path="/players/createPlayer"
             component={createPlayer}
@@ -290,6 +297,23 @@ class AppRouter extends React.Component {
             component={ListMatch}
             permission="admin"
           />
+          <AppRoute
+            path="/players/PlayerList"
+            component={PlayerList}
+            permission="admin"
+          />
+
+
+
+
+
+
+
+
+
+
+
+
           <AppRoute path="/data-list/list-view" component={listView} />
           <AppRoute path="/data-list/thumb-view" component={thumbView} />
           <AppRoute path="/ui-element/grid" component={grid} />

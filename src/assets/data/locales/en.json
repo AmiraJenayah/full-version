@@ -150,6 +150,8 @@
 
 "create Match": "create Match",
 
-"create player": "create player"
+"create player": "create player",
+"List player": " liste joueurs",
+"Matches List": " liste matchs"
 
 }

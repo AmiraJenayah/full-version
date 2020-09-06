@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { addMatch } from "../../redux/actions/match/matchform";
 import { connect } from "react-redux";
+import { history } from "../../history";
+
 
 import {
   Card,
@@ -14,6 +16,9 @@ import {
   Form,
   Button,
 } from "reactstrap";
+
+
+
 
 
 class FormMatch extends Component {
@@ -32,7 +37,6 @@ class FormMatch extends Component {
     user_id: "",
     owner_id: "",
   };
- 
 
   handleTextChange = (event) => {
     const {
@@ -41,9 +45,11 @@ class FormMatch extends Component {
     this.setState({ [name]: value });
   };
 
+  
   handleOnSubmit = (event) => {
     event.preventDefault();
     this.props.addMatch(this.state);
+    history.push("/match/ListMatch");
   };
 
   render() {
@@ -215,6 +221,7 @@ class FormMatch extends Component {
                       color="primary"
                       type="submit"
                       className="mr-1 mb-1"
+                      
                     >
                       Submit
                     </Button.Ripple>

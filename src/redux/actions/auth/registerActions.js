@@ -25,7 +25,7 @@ export const signupWithJWT = (email, password, name) => {
             payload: { loggedInUser, loggedInWith: "jwt" },
           });
 
-          history.push("/");
+          history.push("/pages/login");
         }
       })
       .catch((err) => console.log(err));
