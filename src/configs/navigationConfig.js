@@ -1,14 +1,66 @@
 import React from "react";
 import * as Icon from "react-feather";
+
 const navigationConfig = [
+
   {
-    id: "home",
-    title: "Home",
+    id: "calendar",
+    title: "Calendar",
     type: "item",
-    icon: <Icon.Home size={20} />,
-    //badge: "warning",
+    icon: <Icon.Calendar size={20} />,
     permissions: ["admin", "editor"],
-    navLink: "/",
+    navLink: "/calendar",
+  },
+  {
+    id: "players",
+    title: "Players",
+    type: "item",
+    icon: <Icon.User size={20} />,
+    permissions: ["admin", "editor"],
+    navLink: "/players/PlayerList",
+  },
+
+  {
+    id: "Matchs",
+    title: "Matchs",
+    type: "item",
+    icon: <Icon.Crosshair size={20} />,
+    permissions: ["admin", "editor"],
+    navLink: "/match/ListMatch",
+  },
+  {
+    id: "Exercices",
+    title: "Exercices",
+    type: "item",
+    icon: <Icon.LifeBuoy size={20} />,
+    permissions: ["admin", "editor"],
+    navLink: "/exercices/ListExercices",
+  },
+
+  {
+    id: "Entrenements",
+    title: "Entrenements",
+    type: "item",
+    icon: <Icon.LifeBuoy size={20} />,
+    permissions: ["admin", "editor"],
+    navLink: "/entrenements/entrenements",
+  },
+];
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     /*children: [
       {
         id: "analyticsDash",
@@ -27,22 +79,22 @@ const navigationConfig = [
         navLink: "/ecommerce-dashboard"
       }
     ]*/
-  },
+/*   },
   {
     id: "users",
     title: "User",
     type: "collapse",
     icon: <Icon.User size={20} />,
-    children: [
-      {
+    children: [ */
+   /*    {
         id: "list",
         title: "List",
         type: "item",
         icon: <Icon.Circle size={12} />,
         permissions: ["admin", "editor"],
         navLink: "/app/user/list",
-      },
-      {
+      }, */
+   /*    {
         id: "view",
         title: "View",
         type: "item",
@@ -57,9 +109,9 @@ const navigationConfig = [
         icon: <Icon.Circle size={12} />,
         permissions: ["admin", "editor"],
         navLink: "/app/user/edit",
-      },
-    ],
-  },
+      }, */
+    
+ /*  },
   {
     id: "access-control",
     title: "Access Control",
@@ -88,24 +140,24 @@ const navigationConfig = [
     icon: <Icon.MessageSquare size={20} />,
     permissions: ["admin", "editor"],
     navLink: "/chat",
-  },
-  {
+  }, */
+ /*  {
     id: "todo",
     title: "Todo",
     type: "item",
     icon: <Icon.CheckSquare size={20} />,
     permissions: ["admin", "editor"],
     navLink: "/todo/:filter",
-    filterBase: "/todo/all",
-  },
-  {
-    id: "calendar",
+    filterBase: "/todo/all",*/
+  
+ /*  {
+ id: "calendar",
     title: "Calendar",
-    type: "item",
-    icon: <Icon.Calendar size={20} />,
+     type: "item",
+     icon: <Icon.Calendar size={20} />,
     permissions: ["admin", "editor"],
-    navLink: "/calendar",
-  },
+   navLink: "/calendar",
+  }, */
   /*{
     id: "eCommerce",
     title: "Ecommerce",
@@ -146,7 +198,8 @@ const navigationConfig = [
       }
     ]
   },*/
-  {
+/* },
+  
     id: "players",
     title: "Players",
     type: "collapse",
@@ -169,14 +222,16 @@ const navigationConfig = [
         navLink: "/players/PlayerList",
       },
     ],
-  },
+  
 
   {
     id: "Matchs",
     title: "Matchs",
     type: "collapse",
     icon: <Icon.User size={20} />,
-    children: [
+      permissions: ["admin", "editor"],
+        navLink: "/match/ListMatch", */
+   /*  children: [
       {
         id: "createMatch",
         title: "create Match",
@@ -193,8 +248,8 @@ const navigationConfig = [
         permissions: ["admin", "editor"],
         navLink: "/match/ListMatch",
       },
-    ],
-  },
+    ], */
+  
   /*
 
   {
@@ -1131,6 +1186,6 @@ const navigationConfig = [
     permissions: ["admin", "editor"],
     navLink: "https://pixinvent.ticksy.com/",
   },*/
-];
+
 
 export default navigationConfig;

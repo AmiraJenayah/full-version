@@ -26,6 +26,15 @@ const createPlayer = lazy(() => import("./views/players/CreatePlayer"));
 const createMatch = lazy(() => import("./views/match/CreateMatch"));
 const ListMatch = lazy(() => import("./views/match/ListMatch"));
 const PlayerList = lazy(() => import("./views/players/PlayerList"));
+const ListExercices = lazy(() => import("./views/exercices/ListExercices"));
+const FormExercices = lazy(() => import("./views/exercices/FormExercices"));
+const Entrenements = lazy(() => import("./views/entrenements/entrenements"));
+//const Firstpage = lazy(() => import("./views/firstpage"));
+
+
+
+
+
 
 
 
@@ -246,6 +255,7 @@ class AppRouter extends React.Component {
       // Set the directory path if you are deploying in sub-folder
       <Router history={history}>
         <Switch>
+        
           <AppRoute exact path="/" component={home} />
           <AppRoute
             path="/ecommerce-dashboard"
@@ -277,14 +287,14 @@ class AppRouter extends React.Component {
             component={checkout}
             permission="admin"
           />
-
-
-
-
-          
           <AppRoute
             path="/players/createPlayer"
             component={createPlayer}
+            permission="admin"
+          />
+          <AppRoute
+            path="/players/PlayerList"
+            component={PlayerList}
             permission="admin"
           />
           <AppRoute
@@ -298,22 +308,25 @@ class AppRouter extends React.Component {
             permission="admin"
           />
           <AppRoute
-            path="/players/PlayerList"
-            component={PlayerList}
+            path="/match/ListMatch"
+            component={ListMatch}
             permission="admin"
           />
-
-
-
-
-
-
-
-
-
-
-
-
+          <AppRoute
+            path="/exercices/ListExercices"
+            component={ListExercices}
+            permission="admin"
+          />{" "}
+          <AppRoute
+            path="/exercices/FormExercices"
+            component={FormExercices}
+            permission="admin"
+          />
+          <AppRoute
+            path="/entrenements/Entrenements"
+            component={Entrenements}
+            permission="admin"
+          />
           <AppRoute path="/data-list/list-view" component={listView} />
           <AppRoute path="/data-list/thumb-view" component={thumbView} />
           <AppRoute path="/ui-element/grid" component={grid} />

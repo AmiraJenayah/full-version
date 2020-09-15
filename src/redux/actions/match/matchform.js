@@ -3,9 +3,8 @@ import axios from "axios";
 export const addMatch = (match) => {
   return (dispatch) => {
     axios
-      .post(" http://127.0.0.1:8000/api/match", {
-        competitionId: match.competitionId,
-        competitionName: match.competitionName,
+      .post("http://127.0.0.1:8000/api/match", {
+        matchName: match.matchName,
         adversaire: match.adversaire,
         joue_a: match.joue_a,
         journee: match.journee,
@@ -13,9 +12,7 @@ export const addMatch = (match) => {
         arbitre: match.arbitre,
         equipe_id: match.equipe_id,
         extra_time: match.extra_time,
-        score: match.score,
-        user_id: match.user_id,
-        owner_id: match.owner_id,
+        
       })
       .then((response) => {
         dispatch({

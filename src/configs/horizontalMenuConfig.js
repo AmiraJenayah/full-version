@@ -7,7 +7,7 @@ const horizontalMenuConfig = [
     title: "Home",
     type: "item",
     icon: <Icon.Home size={16} />,
-    navLink: "/",
+    navLink: "/home",
     permissions: ["admin"]
    /* children: [
       {

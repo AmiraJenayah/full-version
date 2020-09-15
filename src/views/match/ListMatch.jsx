@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Button, Card } from "semantic-ui-react";
 import { Row, Col } from "reactstrap";
+import { history } from "../../history";
+
 
 
 
@@ -22,13 +24,17 @@ class ListMatch extends Component {
         });
       }
 
-   handleRemove = (id, extra)=> {
+   handleRemove = (id)=> {
           axios
             .delete(`http://127.0.0.1:8000/api/match/`+ id )
             .then((res) => {
               console.log(res.data);
-            }); } 
-          
+            })
+           } 
+          handleButton = (e)=>{
+           e.preventDefault();
+    history.push("/match/CreateMatch");
+          }
        
 
   renderMatches() {
@@ -39,9 +45,9 @@ class ListMatch extends Component {
             <Card>
               <Card.Content>
                 <Card.Header>
-                  competition Name : {match.competitionName}
+                  match Name : {match.matchName}
                 </Card.Header>
-                <Card.Meta>competitionId : {match.competitionId}</Card.Meta>
+                
                 <Card.Description>
                   <h4> adversaire : {match.adversaire}</h4>
                 </Card.Description>
@@ -98,6 +104,7 @@ class ListMatch extends Component {
   render() {
     return (
       <div>
+        <Row><Button onClick={this.handleButton}>Create match</Button></Row>
         <Row>{this.renderMatches()}</Row>
       </div>
     );

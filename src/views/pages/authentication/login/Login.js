@@ -5,13 +5,10 @@ import {
   CardTitle,
   Row,
   Col,
-  Nav,
-  NavItem,
-  NavLink,
   TabContent,
   TabPane
 } from "reactstrap"
-import classnames from "classnames"
+//import classnames from "classnames"
 import loginImg from "../../../../assets/img/pages/login.png"
 import "../../../../assets/scss/pages/authentication.scss"
 import LoginAuth0 from "./LoginAuth0"
@@ -57,7 +54,7 @@ class Login extends React.Component {
                   <p className="px-2 auth-title">
                     Welcome back, please login to your account.
                   </p>
-                  <Nav tabs className="px-2">
+                 {/*  <Nav tabs className="px-2">
                     <NavItem>
                       <NavLink
                         className={classnames({
@@ -94,7 +91,7 @@ class Login extends React.Component {
                         Auth0
                       </NavLink>
                     </NavItem>
-                  </Nav>
+                  </Nav> */}
                   <TabContent activeTab={this.state.activeTab}>
                     <TabPane tabId="1">
                       <LoginJWT />

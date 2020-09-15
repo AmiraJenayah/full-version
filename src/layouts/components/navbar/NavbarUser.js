@@ -20,56 +20,16 @@ import { useAuth0 } from "../../../authServices/auth0/auth0Service";
 import { history } from "../../../history";
 import { IntlContext } from "../../../utility/context/Internationalization";
 
-const handleNavigation = (e, path) => {
+/* const handleNavigation = (e, path) => {
   e.preventDefault();
   history.push(path);
-};
+}; */
 
 const UserDropdown = (props) => {
   const { logout, isAuthenticated } = useAuth0();
   return (
     <DropdownMenu right>
-      <DropdownItem
-        tag="a"
-        href="#"
-        onClick={(e) => handleNavigation(e, "/pages/profile")}
-      >
-        <Icon.User size={14} className="mr-50" />
-        <span className="align-middle">Edit Profile</span>
-      </DropdownItem>
-      <DropdownItem
-        tag="a"
-        href="#"
-        onClick={(e) => handleNavigation(e, "/email/inbox")}
-      >
-        <Icon.Mail size={14} className="mr-50" />
-        <span className="align-middle">My Inbox</span>
-      </DropdownItem>
-      <DropdownItem
-        tag="a"
-        href="#"
-        onClick={(e) => handleNavigation(e, "/todo/all")}
-      >
-        <Icon.CheckSquare size={14} className="mr-50" />
-        <span className="align-middle">Tasks</span>
-      </DropdownItem>
-      <DropdownItem
-        tag="a"
-        href="#"
-        onClick={(e) => handleNavigation(e, "/chat")}
-      >
-        <Icon.MessageSquare size={14} className="mr-50" />
-        <span className="align-middle">Chats</span>
-      </DropdownItem>
-      <DropdownItem
-        tag="a"
-        href="#"
-        onClick={(e) => handleNavigation(e, "/ecommerce/wishlist")}
-      >
-        <Icon.Heart size={14} className="mr-50" />
-        <span className="align-middle">WishList</span>
-      </DropdownItem>
-      <DropdownItem divider />
+    
       <DropdownItem
         tag="a"
         href="/pages/login"
@@ -498,7 +458,7 @@ class NavbarUser extends React.PureComponent {
               <span className="user-name text-bold-600">
                 {this.props.userName}
               </span>
-              <span className="user-status">Available</span>
+              <span className="user-status"></span>
             </div>
             <span data-tour="user">
               <img

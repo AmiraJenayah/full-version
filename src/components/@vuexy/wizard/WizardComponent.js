@@ -122,7 +122,8 @@ class VuexyWizard extends React.Component {
                     if (!this.props.validate) e.preventDefault()
                     this.handleNextStep(i, this.props.steps.length - 1, errors)
                     this.handleSubmit(e)
-                  }}>
+                  }}
+                  >
                   {item.content}
                   {this.props.pagination ? (
                     <div className="wizard-actions d-flex justify-content-between">
