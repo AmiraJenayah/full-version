@@ -33,6 +33,7 @@ class FormPlayer extends Component {
   handleOnSubmit = (event) => {
     event.preventDefault();
     this.props.addPlayer(this.state);
+    
   };
   handleChangeSpeed = (e) => this.setState({ speed: e.target.value });
   handleChangeEndurance = (e) => this.setState({ endurance: e.target.value });

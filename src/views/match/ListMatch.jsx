@@ -69,15 +69,8 @@ class ListMatch extends Component {
                 <Card.Description>
                   <h4>extra_time : {match.extra_time}</h4>
                 </Card.Description>
-                <Card.Description>
-                  <h4>score : {match.score}</h4>
-                </Card.Description>{" "}
-                <Card.Description>
-                  <h4>user_id : {match.user_id}</h4>
-                </Card.Description>
-                <Card.Description>
-                  <h4>owner_id : {match.owner_id}</h4>
-                </Card.Description>
+                
+               
               </Card.Content>
               <Card.Content extra>
                 <div className="ui two buttons">

@@ -394,7 +394,7 @@ class Entrenements extends Component {
                     </Table.Cell>
                     <Table.Cell>
                       {" "}
-                      <img src={exerc1} alt="" />
+                      <img src={exerc4} alt="" />
                     </Table.Cell>
                   </Table.Row>
                 </Table.Body>
