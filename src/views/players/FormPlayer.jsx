@@ -60,14 +60,12 @@ class FormPlayer extends Component {
     code_postal: "",
     ville: "",
     pays: "",
-
     speed: "",
     endurance: "",
     tactical: "",
     technical: "",
     attack: "",
     defense: "",
-
     published: false,
     submitted: false,
   };
