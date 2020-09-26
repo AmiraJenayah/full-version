@@ -18,11 +18,7 @@ import {
 import { Segment } from "semantic-ui-react";
 
 class FormPlayer extends Component {
-  /* componentDidMount() {
-          this.setState = {
-        
-          };
-        } */
+
   handleTextChange = (event) => {
     const {
       target: { name, value },
