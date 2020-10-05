@@ -38,24 +38,21 @@ export const addPlayer = (joueur) => {
         post_player: joueur.post_player,
         num_license: joueur.num_license,
         number_anneJoue: joueur.number_anneJoue,
-     num_mobile  : joueur.num_mobile,
-           num_fixe  : joueur.num_fixe,
-            adresse  : joueur.adresse,
-        code_postal  : joueur.code_postal,
-               ville  : joueur.ville,
-                 pays  : joueur.pays,
-                speed  : joueur.speed,
-          endurance  : joueur.endurance,
-            tactical  : joueur.tactical,
-            technical  : joueur.technical,
-              attack  : joueur.attack,
-              defense  : joueur.defense,
-
-
-
-
-
-
+        num_mobile: joueur.num_mobile,
+        num_fixe: joueur.num_fixe,
+        adresse: joueur.adresse,
+        code_postal: joueur.code_postal,
+        ville: joueur.ville,
+        pays: joueur.pays,
+        speed: joueur.speed,
+        endurance: joueur.endurance,
+        tactical: joueur.tactical,
+        technical: joueur.technical,
+        attack: joueur.attack,
+        defense: joueur.defense,
+        salaire: joueur.salaire,
+        prime: joueur.prime,
+        contrat: joueur.contrat,
       })
       .then((response) => {
         dispatch({

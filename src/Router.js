@@ -29,6 +29,8 @@ const PlayerList = lazy(() => import("./views/players/PlayerList"));
 const ListExercices = lazy(() => import("./views/exercices/ListExercices"));
 const FormExercices = lazy(() => import("./views/exercices/FormExercices"));
 const Entrenements = lazy(() => import("./views/entrenements/entrenements"));
+const Competition = lazy(() => import("./views/competition/competition"));
+
 //const Firstpage = lazy(() => import("./views/firstpage"));
 
 
@@ -255,7 +257,6 @@ class AppRouter extends React.Component {
       // Set the directory path if you are deploying in sub-folder
       <Router history={history}>
         <Switch>
-        
           <AppRoute exact path="/" component={home} />
           <AppRoute
             path="/ecommerce-dashboard"
@@ -325,6 +326,11 @@ class AppRouter extends React.Component {
           <AppRoute
             path="/entrenements/Entrenements"
             component={Entrenements}
+            permission="admin"
+          />
+          <AppRoute
+            path="/competition/competition"
+            component={Competition}
             permission="admin"
           />
           <AppRoute path="/data-list/list-view" component={listView} />

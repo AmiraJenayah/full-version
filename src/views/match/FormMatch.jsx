@@ -28,8 +28,7 @@ class FormMatch extends Component {
     equipe_id: "",
     extra_time: "",
     score: "",
-    user_id: "",
-    owner_id: "",
+
   };
 
   handleTextChange = (event) => {
@@ -44,6 +43,7 @@ class FormMatch extends Component {
     this.props.addMatch(this.state);
     history.push("/match/ListMatch");
   };
+  
   handleButt = (e) => {
     e.preventDefault();
     history.push("/match/ListMatch");

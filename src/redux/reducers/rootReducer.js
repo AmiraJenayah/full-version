@@ -11,6 +11,7 @@ import matchReducer from "./match/matchReducer"
 import playerReducer from "./player/playerReducer"
 import exerciceReducer from "./exercice/exerciceReducer"
 import resultReducer from "./result/resultReducer"
+import compReducer from "./comp/compReducer";
 
 const rootReducer = combineReducers({
   calendar: calenderReducer,
@@ -25,6 +26,7 @@ const rootReducer = combineReducers({
   player: playerReducer,
   exercice: exerciceReducer,
   result: resultReducer,
+  compReducer: compReducer,
 });
 
 export default rootReducer

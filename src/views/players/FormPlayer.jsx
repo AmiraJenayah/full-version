@@ -66,6 +66,9 @@ class FormPlayer extends Component {
     technical: "",
     attack: "",
     defense: "",
+    salaire : "",
+    prime:"",
+    contrat:"",
     published: false,
     submitted: false,
   };
@@ -430,6 +433,52 @@ class FormPlayer extends Component {
                 </FormGroup>
               </Col>
             </Row>
+
+            <Row>
+              <Segment className="col-12 bg-primary">
+                <center>
+                  {" "}
+                  <h2>Funding</h2>
+                </center>
+              </Segment>
+              <Col md="6" sm="12">
+                <Label for="salaire">Salary</Label>
+                <FormGroup className="form-label-group">
+                  <Input
+                    type="number"
+                    name="salaire"
+                    id="salaire"
+                    placeholder="Salary"
+                    onChange={this.handleTextChange}
+                  />
+                </FormGroup>
+              </Col>
+              <Col md="6" sm="12">
+                <Label for="prime">Premium </Label>
+                <FormGroup className="form-label-group">
+                  <Input
+                    type="number"
+                    name="prime"
+                    id="prime"
+                    placeholder="Premium"
+                    onChange={this.handleTextChange}
+                  />
+                </FormGroup>
+              </Col>
+              <Col md="6" sm="12">
+                <Label for="contart">Contrat</Label>
+                <FormGroup className="form-label-group">
+                  <Input
+                    type="text"
+                    name="contrat"
+                    id="contart"
+                    placeholder="Contrat"
+                    onChange={this.handleTextChange}
+                  />
+                </FormGroup>
+              </Col>
+            </Row>
+
             <Row>
               {" "}
               <Col sm="12">
@@ -461,7 +510,7 @@ class FormPlayer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    values: state.match,
+    values: state.joueur,
   };
 };
 export default connect(mapStateToProps, { addPlayer })(FormPlayer);
