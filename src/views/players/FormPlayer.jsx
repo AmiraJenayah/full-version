@@ -39,36 +39,19 @@ class FormPlayer extends Component {
   handleChangeDefense = (e) => this.setState({ defense: e.target.value });
 
   state = {
+         
+             
     first_name: "",
     last_name: "",
     birthday: "",
-    birthplace: "",
+  numero_tenue:"",
     email: "",
-    num_tenue: "",
-    taille: "",
-    date_arrive: "",
+    hauteur: "",
     poids: "",
-    mutation: "",
-    last_equipe: "",
-    meilleur_pied: "",
-    post_player: "",
-    num_license: "",
-    number_anneJoue: "",
-    num_mobile: "",
-    num_fixe:"",
-    adresse:"",
-    code_postal: "",
-    ville: "",
-    pays: "",
-    speed: "",
-    endurance: "",
-    tactical: "",
-    technical: "",
-    attack: "",
-    defense: "",
+    etatdeSante: "",
     salaire : "",
-    prime:"",
-    contrat:"",
+    primes:"",
+  
     published: false,
     submitted: false,
   };
@@ -142,32 +125,21 @@ class FormPlayer extends Component {
                 <FormGroup className="form-label-group">
                   <Input
                     type="number"
-                    name="num_tenue"
+                    name="numero_tenue"
                     id="t_shirt_numbe_player"
                     placeholder="num_tune"
                     onChange={this.handleTextChange}
                   />
                 </FormGroup>
               </Col>
+
               <Col md="6" sm="12">
-                <Label for="birthplace_city_player">Birthplace </Label>
+                <Label for="hauteur"> Taille</Label>
                 <FormGroup className="form-label-group">
                   <Input
                     type="text"
-                    name="birthplace"
-                    id="birthplace_city_player"
-                    placeholder="birthplace city"
-                    onChange={this.handleTextChange}
-                  />
-                </FormGroup>
-              </Col>
-              <Col md="6" sm="12">
-                <Label for="size_player"> Taille</Label>
-                <FormGroup className="form-label-group">
-                  <Input
-                    type="text"
-                    name="taille"
-                    id="size_player"
+                    name="hauteur"
+                    id="hauteur"
                     placeholder="Size"
                     onChange={this.handleTextChange}
                   />
@@ -185,251 +157,16 @@ class FormPlayer extends Component {
                   />
                 </FormGroup>
               </Col>
-              <Col md="6" sm="12">
-                <Label> Better foot </Label>
-                <FormGroup className="form-label-group">
-                  <Input
-                    type="text"
-                    name="meilleur_pied"
-                    id="meilleur_pied"
-                    onChange={this.handleTextChange}
-                  />
-                </FormGroup>
-              </Col>
-              <Col md="6" sm="12">
-                <Label for="date_arriv_player">date d'arrive</Label>
-                <FormGroup className="form-label-group">
-                  <Input
-                    type="date"
-                    name="date_arrive"
-                    placeholder="date arrivé"
-                    onChange={this.handleTextChange}
-                  />
-                </FormGroup>
-              </Col>
-              <Col md="6" sm="12">
-                <Label for="mutation_player">mutation</Label>
-                <FormGroup className="form-label-group">
-                  <Input
-                    type="text"
-                    name="mutation"
-                    id="mutation_player"
-                    placeholder="mutation"
-                    onChange={this.handleTextChange}
-                  />
-                </FormGroup>
-              </Col>
-              <Col md="6" sm="12">
-                <Label> Post </Label>
-                <FormGroup className="form-label-group">
-                  <Input
-                    type="text"
-                    name="post_player"
-                    id="post_player"
-                    onChange={this.handleTextChange}
-                  />
-                </FormGroup>
-              </Col>
-              <Col md="6" sm="12">
-                <Label> last_equipe </Label>
-                <FormGroup className="form-label-group">
-                  <Input
-                    type="text"
-                    name="last_equipe"
-                    id="last_equipe"
-                    onChange={this.handleTextChange}
-                  />
-                </FormGroup>
-              </Col>
-              <Col md="6" sm="12">
-                <Label> num license </Label>
-                <FormGroup className="form-label-group">
-                  <Input
-                    type="text"
-                    name="num_license"
-                    id="num_license"
-                    onChange={this.handleTextChange}
-                  />
-                </FormGroup>
-              </Col>
-              <Col md="6" sm="12">
-                <Label> number anneJoue </Label>
-                <FormGroup className="form-label-group">
-                  <Input
-                    type="number"
-                    name="number_anneJoue"
-                    id="number_anneJoue"
-                    onChange={this.handleTextChange}
-                  />
-                </FormGroup>
-              </Col>
-            </Row>
-
-            <Row>
-              <Segment className="col-12 bg-primary">
-                <center>
-                  {" "}
-                  <h2>Address / Contact </h2>
-                </center>
-              </Segment>
-              <Col md="6" sm="12">
-                <Label for="adress_player">Adresse</Label>
-                <FormGroup className="form-label-group">
-                  <Input
-                    type="textArea"
-                    name="adresse"
-                    id="adress_player"
-                    placeholder="adresse"
-                    onChange={this.handleTextChange}
-                  />
-                </FormGroup>
-              </Col>
-              <Col md="6" sm="12">
-                <Label for="zip_code_player">Zip code</Label>
-                <FormGroup className="form-label-group">
-                  <Input
-                    type="number"
-                    name="code_postal"
-                    id="zip_code_player"
-                    placeholder="zip code"
-                    onChange={this.handleTextChange}
-                  />
-                </FormGroup>
-              </Col>
 
               <Col md="6" sm="12">
-                <Label for="city_player">City</Label>
+                <Label for="health">health</Label>
                 <FormGroup className="form-label-group">
                   <Input
                     type="text"
-                    name="ville"
-                    id="city_player"
-                    placeholder="city"
+                    name="etatdesante"
+                    id="health"
                     onChange={this.handleTextChange}
                   />
-                </FormGroup>
-              </Col>
-              <Col md="6" sm="12">
-                <Label for="Country_player">Country</Label>
-                <FormGroup className="form-label-group">
-                  <Input
-                    type="text"
-                    name="pays"
-                    id="Country_player"
-                    placeholder="Country"
-                    onChange={this.handleTextChange}
-                  />
-                </FormGroup>
-              </Col>
-              <Col md="6" sm="12">
-                <Label for="phone_number_player">Phone number</Label>
-                <FormGroup className="form-label-group">
-                  <Input
-                    type="number"
-                    name="num_mobile"
-                    id="phone_number_player"
-                    placeholder="phone number"
-                    onChange={this.handleTextChange}
-                  />
-                </FormGroup>
-              </Col>
-              <Col md="6" sm="12">
-                <Label for="fixphone_number_player"> fix</Label>
-                <FormGroup className="form-label-group">
-                  <Input
-                    type="number"
-                    name="num_fixe"
-                    id="fix_phone_number_player"
-                    placeholder="fixphone number"
-                    onChange={this.handleTextChange}
-                  />
-                </FormGroup>
-              </Col>
-            </Row>
-
-            <Row>
-              <Segment className="col-12 bg-primary">
-                <center>
-                  {" "}
-                  <h2>Performance </h2>
-                </center>
-              </Segment>
-              <Col md="6" sm="12">
-                <FormGroup className="form-label-group">
-                  <div>Speed: </div>
-                  <input
-                    type="range"
-                    min={0}
-                    max={100}
-                    onChange={this.handleChangeSpeed}
-                    name="speed"
-                  />
-                  <br />
-                </FormGroup>
-              </Col>
-              <Col md="6" sm="12">
-                <FormGroup className="form-label-group">
-                  <div>Endurance: </div>
-                  <input
-                    type="range"
-                    min={0}
-                    max={100}
-                    onChange={this.handleChangeEndurance}
-                    name="endurance"
-                  />
-                  <br />
-                </FormGroup>
-              </Col>
-              <Col md="6" sm="12">
-                <FormGroup className="form-label-group">
-                  <div>Tactical: </div>
-                  <input
-                    type="range"
-                    min={0}
-                    max={100}
-                    onChange={this.handleChangeTactical}
-                    name="tactical"
-                  />
-                  <br />
-                </FormGroup>
-              </Col>
-              <Col md="6" sm="12">
-                <FormGroup className="form-label-group">
-                  <div>Technical: </div>
-                  <input
-                    type="range"
-                    min={0}
-                    max={100}
-                    onChange={this.handleChangeTechnical}
-                    name="technical"
-                  />
-                  <br />
-                </FormGroup>
-              </Col>
-              <Col md="6" sm="12">
-                <FormGroup className="form-label-group">
-                  <div>Attack: </div>
-                  <input
-                    type="range"
-                    min={0}
-                    max={100}
-                    onChange={this.handleChangeAttack}
-                    name="attack"
-                  />
-                  <br />
-                </FormGroup>
-              </Col>
-              <Col md="6" sm="12">
-                <FormGroup className="form-label-group">
-                  <div>Defense: </div>
-                  <input
-                    type="range"
-                    min={0}
-                    max={100}
-                    onChange={this.handleChangeDefense}
-                    name="defense"
-                  />
-                  <br />
                 </FormGroup>
               </Col>
             </Row>
@@ -461,18 +198,6 @@ class FormPlayer extends Component {
                     name="prime"
                     id="prime"
                     placeholder="Premium"
-                    onChange={this.handleTextChange}
-                  />
-                </FormGroup>
-              </Col>
-              <Col md="6" sm="12">
-                <Label for="contart">Contrat</Label>
-                <FormGroup className="form-label-group">
-                  <Input
-                    type="text"
-                    name="contrat"
-                    id="contart"
-                    placeholder="Contrat"
                     onChange={this.handleTextChange}
                   />
                 </FormGroup>

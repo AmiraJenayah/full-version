@@ -19,15 +19,9 @@ import {
 class FormExercices extends Component {
   state = {
     ExName: "",
-    temps: "",
-    exercice_theme: "",
-    nb_series: "",
-    difficulte: "",
-    phase_jeu: "",
-    repos_series: "",
-    objectif: "",
-    consignes: "",
-    realisation: "",
+    type: "",
+    Duree: "",
+    activite: "",
   };
 
   handleTextChange = (event) => {
@@ -40,12 +34,11 @@ class FormExercices extends Component {
   handleOnSubmit = (event) => {
     event.preventDefault();
     this.props.addexercice(this.state);
-    history.push("/exercices/ListExercices");
   };
   handleButt = (e) => {
     e.preventDefault();
-    history.push("/exercices/ListExercices");
   };
+ 
 
   render() {
     return (
@@ -82,12 +75,11 @@ class FormExercices extends Component {
                 </Col>
                 <Col md="6" sm="12">
                   <FormGroup className="form-label-group">
-                    <h5 className="my-1 text-bold-600">temps</h5>{" "}
+                    <h5 className="my-1 text-bold-600">Type</h5>{" "}
                     <Input
-                      type="number"
-                      placeholder="temps"
+                      placeholder="Type"
                       className="React"
-                      name="temps"
+                      name="type"
                       value={this.state.name}
                       onChange={this.handleTextChange}
                     />
@@ -95,106 +87,27 @@ class FormExercices extends Component {
                 </Col>
                 <Col md="6" sm="12">
                   <FormGroup className="form-label-group">
-                    <h5 className="my-1 text-bold-600">exercice_theme</h5>{" "}
+                    <h5 className="my-1 text-bold-600">Duration</h5>{" "}
                     <Input
-                      placeholder="exercice_theme"
+                      type="number"
+                      placeholder="Duration"
+                      className="React"
+                      name="Duree"
+                      value={this.state.name}
+                      onChange={this.handleTextChange}
+                    />
+                  </FormGroup>
+                </Col>
+                <Col md="6" sm="12">
+                  <FormGroup className="form-label-group">
+                    <h5 className="my-1 text-bold-600">activity</h5>{" "}
+                    <Input
+                      placeholder="activity"
                       type="text"
                       className="React"
-                      name="exercice_theme"
+                      name="activite"
                       value={this.state.name}
                       onChange={this.handleTextChange}
-                    />
-                  </FormGroup>
-                </Col>
-                <Col md="6" sm="12">
-                  <FormGroup className="form-label-group">
-                    <h5 className="my-1 text-bold-600">nb_series</h5>{" "}
-                    <Input
-                      type="number"
-                      placeholder="adversaire"
-                      name="nb_series"
-                      value={this.state.name}
-                      onChange={this.handleTextChange}
-                    />
-                  </FormGroup>
-                </Col>
-                <Col md="6" sm="12">
-                  <FormGroup className="form-label-group">
-                    <h5 className="my-1 text-bold-600">difficulte</h5>{" "}
-                    <Input
-                      placeholder="difficulte"
-                      className="React"
-                      name="difficulte"
-                      value={this.state.name}
-                      onChange={this.handleTextChange}
-                    />
-                  </FormGroup>
-                </Col>
-
-                <Col sm="4" md="4">
-                  <FormGroup className="form-label-group">
-                    <h5 className="my-1 text-bold-600">phase_jeu</h5>{" "}
-                    <input
-                      sm="4"
-                      min={0}
-                      max={20}
-                      type="number"
-                      name="phase_jeu"
-                      onChange={this.handleTextChange}
-                      value={this.state.name}
-                    />
-                  </FormGroup>
-                </Col>
-
-                <Col md="6" sm="12">
-                  <FormGroup className="form-label-group">
-                    <h5 className="my-1 text-bold-600">repos_series</h5>{" "}
-                    <Input
-                      sm=""
-                      min={0}
-                      max={100}
-                      type="number"
-                      name="repos_series"
-                      onChange={this.handleTextChange}
-                      value={this.state.name}
-                      placeholder=" "
-                    />
-                  </FormGroup>
-                </Col>
-
-                <Col md="6" sm="12">
-                  <FormGroup className="form-label-group">
-                    <h5 className="my-1 text-bold-600">objectif</h5>{" "}
-                    <Input
-                      type="text"
-                      name="objectif"
-                      onChange={this.handleTextChange}
-                      value={this.state.name}
-                      placeholder=" "
-                    />
-                  </FormGroup>
-                </Col>
-                <Col md="6" sm="12">
-                  <FormGroup className="form-label-group">
-                    <h5 className="my-1 text-bold-600">consignes</h5>{" "}
-                    <Input
-                      type="text"
-                      name="consignes"
-                      onChange={this.handleTextChange}
-                      value={this.state.name}
-                      placeholder=" "
-                    />
-                  </FormGroup>
-                </Col>
-                <Col md="6" sm="12">
-                  <FormGroup className="form-label-group">
-                    <h5 className="my-1 text-bold-600">realisation</h5>{" "}
-                    <Input
-                      type="text"
-                      name="realisation"
-                      onChange={this.handleTextChange}
-                      value={this.state.name}
-                      placeholder=" "
                     />
                   </FormGroup>
                 </Col>

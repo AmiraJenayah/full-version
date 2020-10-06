@@ -278,7 +278,7 @@ class NavbarUser extends React.PureComponent {
                 }
               }}
             /> */}
-            <div className="search-input-close">
+           {/*  <div className="search-input-close">
               <Icon.X
                 size={24}
                 onClick={(e) => {
@@ -289,7 +289,7 @@ class NavbarUser extends React.PureComponent {
                   this.props.handleAppOverlay("");
                 }}
               />
-            </div>
+            </div> */}
           </div>
         </NavItem>
 
@@ -297,7 +297,7 @@ class NavbarUser extends React.PureComponent {
           tag="li"
           className="dropdown-notification nav-item"
         >
-          <DropdownToggle tag="a" className="nav-link nav-link-label">
+         {/*  <DropdownToggle tag="a" className="nav-link nav-link-label">
             <Icon.Bell size={21} />
             <Badge pill color="primary" className="badge-up">
               {" "}
@@ -450,7 +450,7 @@ class NavbarUser extends React.PureComponent {
                 <span className="align-middle">Read all notifications</span>
               </DropdownItem>
             </li>
-          </DropdownMenu>
+          </DropdownMenu> */}
         </UncontrolledDropdown>
         <UncontrolledDropdown tag="li" className="dropdown-user nav-item">
           <DropdownToggle tag="a" className="nav-link dropdown-user-link">

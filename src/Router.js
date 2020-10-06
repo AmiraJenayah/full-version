@@ -28,18 +28,20 @@ const ListMatch = lazy(() => import("./views/match/ListMatch"));
 const PlayerList = lazy(() => import("./views/players/PlayerList"));
 const ListExercices = lazy(() => import("./views/exercices/ListExercices"));
 const FormExercices = lazy(() => import("./views/exercices/FormExercices"));
-const Entrenements = lazy(() => import("./views/entrenements/entrenements"));
+const Entrainement = lazy(() =>
+  import("./views/entrainement/entrainement")
+);
+const EntrainementList = lazy(() =>
+  import("./views/entrainement/entrainementList")
+);
+
+
 const Competition = lazy(() => import("./views/competition/competition"));
+const CompetitionList = lazy(() =>
+  import("./views/competition/competitionList")
+);
 
 //const Firstpage = lazy(() => import("./views/firstpage"));
-
-
-
-
-
-
-
-
 
 const wishlist = lazy(() => import("./views/apps/ecommerce/wishlist/Wishlist"));
 const checkout = lazy(() => import("./views/apps/ecommerce/cart/Cart"));
@@ -257,6 +259,7 @@ class AppRouter extends React.Component {
       // Set the directory path if you are deploying in sub-folder
       <Router history={history}>
         <Switch>
+          <AppRoute path="/pages/login" component={Login} fullLayout />
           <AppRoute exact path="/" component={home} />
           <AppRoute
             path="/ecommerce-dashboard"
@@ -324,8 +327,13 @@ class AppRouter extends React.Component {
             permission="admin"
           />
           <AppRoute
-            path="/entrenements/Entrenements"
-            component={Entrenements}
+            path="/entrainement/entrainement"
+            component={Entrainement}
+            permission="admin"
+          />
+          <AppRoute
+            path="/entrainement/entrainementList"
+            component={EntrainementList}
             permission="admin"
           />
           <AppRoute
@@ -333,6 +341,12 @@ class AppRouter extends React.Component {
             component={Competition}
             permission="admin"
           />
+          <AppRoute
+            path="/competition/competitionList"
+            component={CompetitionList}
+            permission="admin"
+          />
+          competitionList
           <AppRoute path="/data-list/list-view" component={listView} />
           <AppRoute path="/data-list/thumb-view" component={thumbView} />
           <AppRoute path="/ui-element/grid" component={grid} />
@@ -427,7 +441,6 @@ class AppRouter extends React.Component {
             fullLayout
           />
           <AppRoute path="/misc/error/404" component={error404} fullLayout />
-          <AppRoute path="/pages/login" component={Login} fullLayout />
           <AppRoute path="/pages/register" component={register} fullLayout />
           <AppRoute
             path="/pages/forgot-password"

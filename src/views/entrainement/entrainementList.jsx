@@ -4,25 +4,26 @@ import { history } from "../../history";
 
 import { Button, Card, Accordion, Icon, Label, Table } from "semantic-ui-react";
 import { Row, Col } from "reactstrap";
-class ListExercices extends Component {
+class entrainementList extends Component {
   constructor(props) {
     super(props);
     this.handleRemove = this.handleRemove.bind();
     this.state = {
       activeIndex: 0,
-      exercices: [],
+      entrainement: [],
     };
   }
   componentDidMount() {
-    axios.get("http://127.0.0.1:8000/api/exercices").then((res) => {
-      const exercices = res.data;
-      this.setState({ exercices });
+    axios.get("http://127.0.0.1:8000/api/entrainements").then((res) => {
+      const entrainement = res.data;
+      this.setState({ entrainement });
     });
   }
 
   handleRemove = (id) => {
-    axios.delete(`http://127.0.0.1:8000/api/exercice/` + id).then((res) => {
+    axios.delete(`http://127.0.0.1:8000/api/entrainement/` + id).then((res) => {
       console.log(res.data);
+      history.push("/entrainement/entrainementList");
     });
   };
   handleClick = (e, titleProps) => {
@@ -34,21 +35,20 @@ class ListExercices extends Component {
   };
   handleButton = (e) => {
     e.preventDefault();
-    history.push("/exercices/FormExercices");
+    history.push("/entrainement/entrainement");
   };
 
-  renderExercice() {
+  renderentrainement() {
     const { activeIndex } = this.state;
-    return this.state.exercices.map((exercice) => {
+    return this.state.entrainement.map((entrainement) => {
       return (
         <div>
-          <Col key={exercice.id}>
+          <Col key={entrainement.id}>
             <Card>
               <Card.Content>
                 <Card.Header>
-                  {exercice.ExName} {"   "}
+                  {entrainement.EntName} {"   "}
                 </Card.Header>
-                <Card.Meta> {exercice.difficulte}</Card.Meta>
                 <Card.Description>
                   <Accordion fluid styled>
                     <Accordion.Title
@@ -57,29 +57,37 @@ class ListExercices extends Component {
                       onClick={this.handleClick}
                     >
                       <Icon name="dropdown" />
-                      feature 
+                      entrainement Detail{" "}
                     </Accordion.Title>
                     <Accordion.Content active={activeIndex === 0}>
                       <Table celled>
                         <Table.Body>
                           <Table.Row>
                             <Table.Cell>
-                              <Label ribbon>type</Label>
+                              <Label ribbon> Dureation</Label>
+                             
                             </Table.Cell>
-                            <Table.Cell>{exercice.type}</Table.Cell>
+                            <Table.Cell>{entrainement.Period}</Table.Cell>
                           </Table.Row>
                           <Table.Row>
                             <Table.Cell>
-                              <Label ribbon>Duration</Label>
+                              <Label ribbon>Location </Label>
                             </Table.Cell>
-                            <Table.Cell>{exercice.Duree}</Table.Cell>
+                            <Table.Cell>{entrainement.Lieu}</Table.Cell>
+                          </Table.Row>
+
+                          <Table.Row>
+                            <Table.Cell>
+                              <Label ribbon>Schedule</Label>
+                            </Table.Cell>
+                            <Table.Cell>{entrainement.Horaire}</Table.Cell>
                           </Table.Row>
                           <Table.Row>
                             <Table.Cell>
-                              <Label ribbon>activity</Label>
+                              <Label ribbon>Nb_exercise</Label>
                             </Table.Cell>
-                            <Table.Cell>{exercice.activite}</Table.Cell>
-                          </Table.Row>{" "}
+                            <Table.Cell>{entrainement.Nb_exercice}</Table.Cell>
+                          </Table.Row>
                         </Table.Body>
                       </Table>
                     </Accordion.Content>
@@ -94,7 +102,7 @@ class ListExercices extends Component {
                   <Button
                     basic
                     color="red"
-                    onClick={(e) => this.handleRemove(exercice.id, e)}
+                    onClick={(e) => this.handleRemove(entrainement.id, e)}
                   >
                     Remove
                   </Button>
@@ -113,11 +121,11 @@ class ListExercices extends Component {
     return (
       <div>
         <Row>
-          <Button onClick={this.handleButton}>Creacte new Exercice</Button>
+          <Button onClick={this.handleButton}>Creacte new entrainement</Button>
         </Row>
-        <Row>{this.renderExercice()}</Row>
+        <Row>{this.renderentrainement()}</Row>
       </div>
     );
   }
 }
-export default ListExercices;
+export default entrainementList;

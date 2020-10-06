@@ -18,16 +18,15 @@ import {
 
 class FormMatch extends Component {
   state = {
-    competitionId: "",
-    competitionName: "",
+    matchName: "",
     adversaire: "",
-    joue_a: "",
-    journee: "",
-    terrain: "",
+    date: "",
+    stade: "",
     arbitre: "",
-    equipe_id: "",
-    extra_time: "",
-    score: "",
+   equipe: "",
+    tenue: "",
+
+  
 
   };
 
@@ -59,7 +58,9 @@ class FormMatch extends Component {
               {" "}
               <Button onClick={this.handleButt}>return to matchs list</Button>
             </Row>
-            <CardTitle><h4>Create</h4></CardTitle>
+            <CardTitle>
+              <h4>Create</h4>
+            </CardTitle>
           </CardHeader>
           <CardBody>
             <Form className="mt-2" onSubmit={this.handleOnSubmit}>
@@ -68,7 +69,7 @@ class FormMatch extends Component {
                   <FormGroup className="form-label-group">
                     <h5 className="my-1 text-bold-600">Match name</h5>
                     <Input
-                      placeholder=" compétition name"
+                      placeholder=" Match name"
                       className="React"
                       name="matchName"
                       value={this.state.name}
@@ -78,11 +79,12 @@ class FormMatch extends Component {
                 </Col>
                 <Col md="6" sm="12">
                   <FormGroup className="form-label-group">
-                    <h5 className="my-1 text-bold-600">journe</h5>{" "}
+                    <h5 className="my-1 text-bold-600">date</h5>{" "}
                     <Input
-                      placeholder="Choisir Journée"
+                      type="date"
+                      placeholder="date"
                       className="React"
-                      name="journee"
+                      name="date"
                       value={this.state.name}
                       onChange={this.handleTextChange}
                     />
@@ -92,10 +94,10 @@ class FormMatch extends Component {
                   <FormGroup className="form-label-group">
                     <h5 className="my-1 text-bold-600">equipe</h5>{" "}
                     <Input
-                      placeholder="equipe number"
-                      type="number"
+                      placeholder="equipe "
+                      type="text"
                       className="React"
-                      name="equipe_id"
+                      name="equipe"
                       value={this.state.name}
                       onChange={this.handleTextChange}
                     />
@@ -112,40 +114,13 @@ class FormMatch extends Component {
                     />
                   </FormGroup>
                 </Col>
-                <Col md="6" sm="12">
-                  <FormGroup className="form-label-group">
-                    <h5 className="my-1 text-bold-600">jouè à</h5>{" "}
-                    <Input
-                      placeholder="jouè a"
-                      className="React"
-                      name="joue_a"
-                      value={this.state.name}
-                      onChange={this.handleTextChange}
-                    />
-                  </FormGroup>
-                </Col>
-
-                <Col sm="4" md="4">
-                  <FormGroup className="form-label-group">
-                    <h5 className="my-1 text-bold-600">Temps Total (min)</h5>{" "}
-                    <input
-                      sm="4"
-                      min={0}
-                      max={20}
-                      type="number"
-                      name="extra_time"
-                      onChange={this.handleTextChange}
-                      value={this.state.name}
-                    />
-                  </FormGroup>
-                </Col>
 
                 <Col md="6" sm="12">
                   <FormGroup className="form-label-group">
-                    <h5 className="my-1 text-bold-600">terrain</h5>{" "}
+                    <h5 className="my-1 text-bold-600">stade</h5>{" "}
                     <Input
                       type="text"
-                      name="terrain"
+                      name="stade"
                       value={this.state.name}
                       onChange={this.handleTextChange}
                       placeholder=" "
@@ -165,7 +140,18 @@ class FormMatch extends Component {
                     />
                   </FormGroup>
                 </Col>
-
+                <Col md="6" sm="12">
+                  <FormGroup className="form-label-group">
+                    <h5 className="my-1 text-bold-600">Tenue</h5>{" "}
+                    <Input
+                      type="text"
+                      name="tenue"
+                      value={this.state.name}
+                      onChange={this.handleTextChange}
+                      placeholder=" "
+                    />
+                  </FormGroup>
+                </Col>
                 <Col sm="12">
                   <FormGroup className="form-label-group">
                     <Button.Ripple

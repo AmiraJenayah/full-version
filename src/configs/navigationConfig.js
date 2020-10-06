@@ -2,15 +2,14 @@ import React from "react";
 import * as Icon from "react-feather";
 
 const navigationConfig = [
-
-  {
+  /*   {
     id: "calendar",
     title: "Calendar",
     type: "item",
     icon: <Icon.Calendar size={20} />,
     permissions: ["admin", "editor"],
     navLink: "/calendar",
-  },
+  }, */
   {
     id: "players",
     title: "Players",
@@ -18,6 +17,14 @@ const navigationConfig = [
     icon: <Icon.User size={20} />,
     permissions: ["admin", "editor"],
     navLink: "/players/PlayerList",
+  },
+  {
+    id: "competition",
+    title: "competition",
+    type: "item",
+    icon: <Icon.LifeBuoy size={20} />,
+    permissions: ["admin", "editor"],
+    navLink: "/competition/competitionList",
   },
 
   {
@@ -29,21 +36,20 @@ const navigationConfig = [
     navLink: "/match/ListMatch",
   },
   {
+    id: "Training",
+    title: "Training",
+    type: "item",
+    icon: <Icon.LifeBuoy size={20} />,
+    permissions: ["admin", "editor"],
+    navLink: "/entrainement/entrainementList",
+  },
+  {
     id: "Exercices",
     title: "Exercices",
     type: "item",
     icon: <Icon.LifeBuoy size={20} />,
     permissions: ["admin", "editor"],
     navLink: "/exercices/ListExercices",
-  },
-
-  {
-    id: "Entrenements",
-    title: "Entrenements",
-    type: "item",
-    icon: <Icon.LifeBuoy size={20} />,
-    permissions: ["admin", "editor"],
-    navLink: "/entrenements/entrenements",
   },
 ];
     

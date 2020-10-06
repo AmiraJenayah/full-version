@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { history } from "../../history";
 import { connect } from "react-redux";
-import { addComp } from "../../redux/actions/competiton/competitionAction";
+import { addEntrainement } from "../../redux/actions/entrainement/entrainementAction";
 import {
   Form,
   FormGroup,
@@ -16,13 +16,13 @@ import {
   Button,
 } from "reactstrap";
 
-class Competiton extends Component {
+class Entrainement extends Component {
   state = {
-    Compname: "",
-    Saison: "",
-    Number_equipe: "",
-    Prix: "",
-   
+    EntName: "",
+    Period: "",
+    Lieu: "",
+    Horaire: "",
+    Nb_exercice: "",
   };
 
   handleTextChange = (event) => {
@@ -34,13 +34,12 @@ class Competiton extends Component {
 
   handleOnSubmit = (event) => {
     event.preventDefault();
-    this.props.addComp(this.state);
-    history.push("/competition/competition");
+    this.props.addEntrainement(this.state);
   };
   handleButt = (e) => {
-    e.preventDefault();
-     history.push("/competition/CompetitionList");
-  };
+                        e.preventDefault();
+                          history.push("/entrainement/entrainementList");
+                      };
 
   render() {
     return (
@@ -50,10 +49,10 @@ class Competiton extends Component {
             {" "}
             <Row>
               {" "}
-              <Button onClick={this.handleButt}>Competition List</Button>
+              <Button onClick={this.handleButt}>Training List</Button>
             </Row>
             <CardTitle>
-              <h4>Create Competition</h4>
+              <h4>Create </h4>
             </CardTitle>
           </CardHeader>
           <CardBody>
@@ -61,12 +60,12 @@ class Competiton extends Component {
               <Row>
                 <Col md="6" sm="12">
                   <FormGroup className="form-label-group">
-                    <h5 className="my-1 text-bold-600">Competition name</h5>
+                    <h5 className="my-1 text-bold-600">Training name</h5>
                     <Input
                       type="text"
-                      placeholder=" compétition name"
+                      placeholder="training"
                       className="React"
-                      name="Compname"
+                      name="EntName"
                       value={this.state.name}
                       onChange={this.handleTextChange}
                     />
@@ -74,43 +73,56 @@ class Competiton extends Component {
                 </Col>
                 <Col md="6" sm="12">
                   <FormGroup className="form-label-group">
-                    <h5 className="my-1 text-bold-600">Number_equipe </h5>{" "}
-                    <Input
-                      type="number"
-                      placeholder="Number_equipe"
-                      className="React"
-                      name="Number_equipe"
-                      value={this.state.name}
-                      onChange={this.handleTextChange}
-                    />
-                  </FormGroup>
-                </Col>
-                <Col md="6" sm="12">
-                  <FormGroup className="form-label-group">
-                    <h5 className="my-1 text-bold-600">Saison </h5>{" "}
+                    <h5 className="my-1 text-bold-600">Period </h5>
                     <Input
                       type="text"
-                      placeholder="Saison"
+                      placeholder="Period"
                       className="React"
-                      name="Saison"
-                      value={this.state.name}
-                      onChange={this.handleTextChange}
-                    />
-                  </FormGroup>
-                </Col>
-                <Col md="6" sm="12">
-                  <FormGroup className="form-label-group">
-                    <h5 className="my-1 text-bold-600">Prix</h5>{" "}
-                    <Input
-                      type="number"
-                      placeholder="Prix"
-                      name="Prix"
+                      name="Period"
                       value={this.state.name}
                       onChange={this.handleTextChange}
                     />
                   </FormGroup>
                 </Col>
 
+                <Col md="6" sm="12">
+                  <FormGroup className="form-label-group">
+                    <h5 className="my-1 text-bold-600">Location</h5>{" "}
+                    <Input
+                      type="text"
+                      placeholder="Location"
+                      className="React"
+                      name="Lieu"
+                      value={this.state.name}
+                      onChange={this.handleTextChange}
+                    />
+                  </FormGroup>
+                </Col>
+                <Col md="6" sm="12">
+                  <FormGroup className="form-label-group">
+                    <h5 className="my-1 text-bold-600">Schedule </h5>{" "}
+                    <Input
+                      type="date"
+                      placeholder="Schedule"
+                      className="React"
+                      name="Horaire"
+                      value={this.state.name}
+                      onChange={this.handleTextChange}
+                    />
+                  </FormGroup>
+                </Col>
+                <Col md="6" sm="12">
+                  <FormGroup className="form-label-group">
+                    <h5 className="my-1 text-bold-600">Nb_exercice</h5>{" "}
+                    <Input
+                      type="number"
+                      placeholder="Nb_exercice"
+                      name="Nb_exercice"
+                      value={this.state.name}
+                      onChange={this.handleTextChange}
+                    />
+                  </FormGroup>
+                </Col>
                 <Col sm="12">
                   <FormGroup className="form-label-group">
                     <Button.Ripple
@@ -141,7 +153,7 @@ class Competiton extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    values: state.comp,
+    values: state.entrainement,
   };
 };
-export default connect(mapStateToProps, { addComp })(Competiton);
+export default connect(mapStateToProps, { addEntrainement })(Entrainement);

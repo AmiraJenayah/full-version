@@ -22,9 +22,10 @@ export const addComp = (comp) => {
     axios
       .post("http://127.0.0.1:8000/api/comp", {
         Compname: comp.Compname,
-        nbre_journee: comp.nbre_journee,
-        pays: comp.pays,
-        match_id: comp.match_id,
+        Saison: comp.Saison,
+        Number_equipe: comp.Number_equipe,
+        Prix: comp.Prix,
+       
       })
       .then((response) => {
         dispatch({

@@ -51,13 +51,12 @@ class PlayerList extends Component {
           <Col key={joueur.id}>
             <Card>
               <Card.Content>
+          
                 <Card.Header>
                   {joueur.first_name} {"   "}
                   {joueur.last_name}
                 </Card.Header>
-                <Card.Meta> {joueur.num_mobile}</Card.Meta>
                 <Card.Meta> {joueur.email}</Card.Meta>
-
                 <Card.Description>
                   <Accordion fluid styled>
                     <Accordion.Title
@@ -66,61 +65,9 @@ class PlayerList extends Component {
                       onClick={this.handleClick}
                     >
                       <Icon name="dropdown" />
-                      player performance
+                      Profil{" "}
                     </Accordion.Title>
                     <Accordion.Content active={activeIndex === 0}>
-                      <Table celled>
-                        <Table.Body>
-                          <Table.Row>
-                            <Table.Cell>
-                              <Label ribbon>speed</Label>
-                            </Table.Cell>
-                            <Table.Cell>{joueur.speed}</Table.Cell>
-                          </Table.Row>
-                          <Table.Row>
-                            <Table.Cell>
-                              <Label ribbon>endurance</Label>
-                            </Table.Cell>
-                            <Table.Cell>{joueur.endurance}</Table.Cell>
-                          </Table.Row>
-
-                          <Table.Row>
-                            <Table.Cell>
-                              <Label ribbon>tactical</Label>
-                            </Table.Cell>
-                            <Table.Cell>{joueur.tactical}</Table.Cell>
-                          </Table.Row>
-                          <Table.Row>
-                            <Table.Cell>
-                              <Label ribbon>technical</Label>
-                            </Table.Cell>
-                            <Table.Cell>{joueur.technical}</Table.Cell>
-                          </Table.Row>
-                          <Table.Row>
-                            <Table.Cell>
-                              <Label ribbon>attack</Label>
-                            </Table.Cell>
-                            <Table.Cell>{joueur.attack}</Table.Cell>
-                          </Table.Row>
-                          <Table.Row>
-                            <Table.Cell>
-                              <Label ribbon>defense</Label>
-                            </Table.Cell>
-                            <Table.Cell>{joueur.defense}</Table.Cell>
-                          </Table.Row>
-                        </Table.Body>
-                      </Table>
-                    </Accordion.Content>
-
-                    <Accordion.Title
-                      active={activeIndex === 1}
-                      index={1}
-                      onClick={this.handleClick}
-                    >
-                      <Icon name="dropdown" />
-                      detail
-                    </Accordion.Title>
-                    <Accordion.Content active={activeIndex === 1}>
                       <Table celled>
                         <Table.Body>
                           <Table.Row>
@@ -132,21 +79,15 @@ class PlayerList extends Component {
 
                           <Table.Row>
                             <Table.Cell>
-                              <Label ribbon>birthplace</Label>
-                            </Table.Cell>
-                            <Table.Cell>{joueur.birthplace}</Table.Cell>
-                          </Table.Row>
-                          <Table.Row>
-                            <Table.Cell>
                               <Label ribbon>num_tenue</Label>
                             </Table.Cell>
-                            <Table.Cell>{joueur.num_tenue}</Table.Cell>
+                            <Table.Cell>{joueur.numero_tenue}</Table.Cell>
                           </Table.Row>
                           <Table.Row>
                             <Table.Cell>
                               <Label ribbon>taille</Label>
                             </Table.Cell>
-                            <Table.Cell>{joueur.taille}</Table.Cell>
+                            <Table.Cell>{joueur.hauteur}</Table.Cell>
                           </Table.Row>
                           <Table.Row>
                             <Table.Cell>
@@ -154,92 +95,39 @@ class PlayerList extends Component {
                             </Table.Cell>
                             <Table.Cell>{joueur.poids}</Table.Cell>
                           </Table.Row>
+
                           <Table.Row>
                             <Table.Cell>
-                              <Label ribbon>date_arrive</Label>
+                              <Label ribbon>Health</Label>
                             </Table.Cell>
-                            <Table.Cell>{joueur.date_arrive}</Table.Cell>
-                          </Table.Row>
-                          <Table.Row>
-                            <Table.Cell>
-                              <Label ribbon>mutation</Label>
-                            </Table.Cell>
-                            <Table.Cell>{joueur.mutation}</Table.Cell>
-                          </Table.Row>
-                          <Table.Row>
-                            <Table.Cell>
-                              <Label ribbon>last_equipe</Label>
-                            </Table.Cell>
-                            <Table.Cell>{joueur.last_equipe}</Table.Cell>
-                          </Table.Row>
-                          <Table.Row>
-                            <Table.Cell>
-                              <Label ribbon>meilleur_pied</Label>
-                            </Table.Cell>
-                            <Table.Cell>{joueur.meilleur_pied}</Table.Cell>
-                          </Table.Row>
-                          <Table.Row>
-                            <Table.Cell>
-                              <Label ribbon>post_player</Label>
-                            </Table.Cell>
-                            <Table.Cell>{joueur.post_player}</Table.Cell>
-                          </Table.Row>
-                          <Table.Row>
-                            <Table.Cell>
-                              <Label ribbon>num_license</Label>
-                            </Table.Cell>
-                            <Table.Cell>{joueur.num_license}</Table.Cell>
-                          </Table.Row>
-                          <Table.Row>
-                            <Table.Cell>
-                              <Label ribbon>number_anneJoue</Label>
-                            </Table.Cell>
-                            <Table.Cell>{joueur.number_anneJoue}</Table.Cell>
+                            <Table.Cell>{joueur.etatdeSante}</Table.Cell>
                           </Table.Row>
                         </Table.Body>
                       </Table>
                     </Accordion.Content>
 
                     <Accordion.Title
-                      active={activeIndex === 2}
-                      index={2}
+                      active={activeIndex === 1}
+                      index={1}
                       onClick={this.handleClick}
                     >
                       <Icon name="dropdown" />
-                      Adress/contact
+                      Funding
                     </Accordion.Title>
-                    <Accordion.Content active={activeIndex === 2}>
+                    <Accordion.Content active={activeIndex === 1}>
                       <Table celled>
                         <Table.Body>
                           <Table.Row>
                             <Table.Cell>
-                              <Label ribbon>num_fixe</Label>
+                              <Label ribbon>Salary</Label>
                             </Table.Cell>
-                            <Table.Cell>{joueur.num_fixe}</Table.Cell>
+                            <Table.Cell>{joueur.salaire}</Table.Cell>
                           </Table.Row>
                           <Table.Row>
                             <Table.Cell>
-                              <Label ribbon>adresse</Label>
+                              <Label ribbon>Premium</Label>
                             </Table.Cell>
-                            <Table.Cell>{joueur.adresse}</Table.Cell>
-                          </Table.Row>
-                          <Table.Row>
-                            <Table.Cell>
-                              <Label ribbon>code_postal</Label>
-                            </Table.Cell>
-                            <Table.Cell>{joueur.code_postal}</Table.Cell>
-                          </Table.Row>
-                          <Table.Row>
-                            <Table.Cell>
-                              <Label ribbon>ville</Label>
-                            </Table.Cell>
-                            <Table.Cell>{joueur.ville}</Table.Cell>
-                          </Table.Row>
-                          <Table.Row>
-                            <Table.Cell>
-                              <Label ribbon>pays</Label>
-                            </Table.Cell>
-                            <Table.Cell>{joueur.pays}</Table.Cell>
+                            <Table.Cell>{joueur.primes}</Table.Cell>
                           </Table.Row>
                         </Table.Body>
                       </Table>

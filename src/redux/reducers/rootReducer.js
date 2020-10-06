@@ -12,6 +12,9 @@ import playerReducer from "./player/playerReducer"
 import exerciceReducer from "./exercice/exerciceReducer"
 import resultReducer from "./result/resultReducer"
 import compReducer from "./comp/compReducer";
+import entrainementReducer from "./entrainement/entrainementReducer";
+
+;
 
 const rootReducer = combineReducers({
   calendar: calenderReducer,

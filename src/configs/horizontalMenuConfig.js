@@ -33,7 +33,7 @@ const horizontalMenuConfig = [
     title: "Apps",
     type: "dropdown",
     icon: <Icon.Grid size={16} />,
-    children: [
+  /*   children: [
       {
         id: "email",
         title: "Email",
@@ -140,8 +140,8 @@ const horizontalMenuConfig = [
           }
         ]
       }
-    ]
-  },
+    ] */
+/*  },
   {
     id: "uiElements",
     title: "UI Elements",
@@ -621,9 +621,9 @@ const horizontalMenuConfig = [
         ]
       }
     ]
-  },
-  {
-    id: "forms-tables",
+  },*/
+  
+  /*  id: "forms-tables",
     title: "Forms & Tables",
     type: "dropdown",
     icon: <Icon.Edit3 size={16} />,
@@ -1068,7 +1068,7 @@ const horizontalMenuConfig = [
         navLink: "https://pixinvent.ticksy.com/",
         permissions: ["admin", "editor"]
       }
-    ]
+    ]*/
   }
 ]
 

@@ -4,26 +4,29 @@ import { history } from "../../history";
 
 import { Button, Card, Accordion, Icon, Label, Table } from "semantic-ui-react";
 import { Row, Col } from "reactstrap";
-class ListExercices extends Component {
+class CompetitionList extends Component {
   constructor(props) {
     super(props);
     this.handleRemove = this.handleRemove.bind();
     this.state = {
       activeIndex: 0,
-      exercices: [],
+      competition: [],
     };
   }
   componentDidMount() {
-    axios.get("http://127.0.0.1:8000/api/exercices").then((res) => {
-      const exercices = res.data;
-      this.setState({ exercices });
+    axios.get("http://127.0.0.1:8000/api/comp").then((res) => {
+      const competition = res.data;
+      this.setState({ competition });
     });
   }
 
-  handleRemove = (id) => {
-    axios.delete(`http://127.0.0.1:8000/api/exercice/` + id).then((res) => {
+  handleRemove = (id ) => {
+    axios.delete(`http://127.0.0.1:8000/api/comp/` + id).then((res) => {
       console.log(res.data);
-    });
+        history.push("/competition/competitionList");
+       
+    })
+  
   };
   handleClick = (e, titleProps) => {
     const { index } = titleProps;
@@ -34,21 +37,20 @@ class ListExercices extends Component {
   };
   handleButton = (e) => {
     e.preventDefault();
-    history.push("/exercices/FormExercices");
+    history.push("/competition/competition");
   };
 
-  renderExercice() {
+  rendercompetition() {
     const { activeIndex } = this.state;
-    return this.state.exercices.map((exercice) => {
+    return this.state.competition.map((competition) => {
       return (
         <div>
-          <Col key={exercice.id}>
+          <Col key={competition.id}>
             <Card>
               <Card.Content>
                 <Card.Header>
-                  {exercice.ExName} {"   "}
+                  {competition.Compname} {"   "}
                 </Card.Header>
-                <Card.Meta> {exercice.difficulte}</Card.Meta>
                 <Card.Description>
                   <Accordion fluid styled>
                     <Accordion.Title
@@ -57,29 +59,31 @@ class ListExercices extends Component {
                       onClick={this.handleClick}
                     >
                       <Icon name="dropdown" />
-                      feature 
+                      Competition Detail{" "}
                     </Accordion.Title>
                     <Accordion.Content active={activeIndex === 0}>
                       <Table celled>
                         <Table.Body>
                           <Table.Row>
+                            
                             <Table.Cell>
-                              <Label ribbon>type</Label>
+                              <Label ribbon>Saison </Label>
                             </Table.Cell>
-                            <Table.Cell>{exercice.type}</Table.Cell>
+                            <Table.Cell>{competition.Saison}</Table.Cell>
                           </Table.Row>
                           <Table.Row>
                             <Table.Cell>
-                              <Label ribbon>Duration</Label>
+                              <Label ribbon>Number_equipe</Label>
                             </Table.Cell>
-                            <Table.Cell>{exercice.Duree}</Table.Cell>
+                            <Table.Cell>{competition.Number_equipe}</Table.Cell>
                           </Table.Row>
+
                           <Table.Row>
                             <Table.Cell>
-                              <Label ribbon>activity</Label>
+                              <Label ribbon>Prix</Label>
                             </Table.Cell>
-                            <Table.Cell>{exercice.activite}</Table.Cell>
-                          </Table.Row>{" "}
+                            <Table.Cell>{competition.Prix}</Table.Cell>
+                          </Table.Row>
                         </Table.Body>
                       </Table>
                     </Accordion.Content>
@@ -94,7 +98,7 @@ class ListExercices extends Component {
                   <Button
                     basic
                     color="red"
-                    onClick={(e) => this.handleRemove(exercice.id, e)}
+                    onClick={(e) => this.handleRemove(competition.id, e)}
                   >
                     Remove
                   </Button>
@@ -113,11 +117,13 @@ class ListExercices extends Component {
     return (
       <div>
         <Row>
-          <Button onClick={this.handleButton}>Creacte new Exercice</Button>
+          <Button onClick={this.handleButton}>
+            Creacte new Competition
+          </Button>
         </Row>
-        <Row>{this.renderExercice()}</Row>
+        <Row>{this.rendercompetition()}</Row>
       </div>
     );
   }
 }
-export default ListExercices;
+export default CompetitionList;
