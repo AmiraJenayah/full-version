@@ -74,6 +74,7 @@ class FormMatch extends Component {
                       name="matchName"
                       value={this.state.name}
                       onChange={this.handleTextChange}
+                      required
                     />
                   </FormGroup>
                 </Col>
@@ -82,11 +83,11 @@ class FormMatch extends Component {
                     <h5 className="my-1 text-bold-600">date</h5>{" "}
                     <Input
                       type="date"
-                      placeholder="date"
                       className="React"
                       name="date"
                       value={this.state.name}
                       onChange={this.handleTextChange}
+                      required
                     />
                   </FormGroup>
                 </Col>
@@ -100,6 +101,7 @@ class FormMatch extends Component {
                       name="equipe"
                       value={this.state.name}
                       onChange={this.handleTextChange}
+                      required
                     />
                   </FormGroup>
                 </Col>
@@ -111,6 +113,7 @@ class FormMatch extends Component {
                       name="adversaire"
                       value={this.state.name}
                       onChange={this.handleTextChange}
+                      required
                     />
                   </FormGroup>
                 </Col>
@@ -124,6 +127,7 @@ class FormMatch extends Component {
                       value={this.state.name}
                       onChange={this.handleTextChange}
                       placeholder=" "
+                      required
                     />
                   </FormGroup>
                 </Col>
@@ -137,6 +141,7 @@ class FormMatch extends Component {
                       value={this.state.name}
                       onChange={this.handleTextChange}
                       placeholder=" "
+                      required
                     />
                   </FormGroup>
                 </Col>
@@ -149,6 +154,7 @@ class FormMatch extends Component {
                       value={this.state.name}
                       onChange={this.handleTextChange}
                       placeholder=" "
+                      required
                     />
                   </FormGroup>
                 </Col>

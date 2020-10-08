@@ -34,9 +34,12 @@ class FormExercices extends Component {
   handleOnSubmit = (event) => {
     event.preventDefault();
     this.props.addexercice(this.state);
+    history.push("/exercices/ListExercices");
   };
   handleButt = (e) => {
     e.preventDefault();
+      history.push("/exercices/ListExercices");
+
   };
  
 
@@ -70,6 +73,7 @@ class FormExercices extends Component {
                       name="ExName"
                       value={this.state.name}
                       onChange={this.handleTextChange}
+                      required
                     />
                   </FormGroup>
                 </Col>
@@ -77,17 +81,18 @@ class FormExercices extends Component {
                   <FormGroup className="form-label-group">
                     <h5 className="my-1 text-bold-600">Type</h5>{" "}
                     <Input
-                      placeholder="Type"
+                      placeholder="type"
                       className="React"
                       name="type"
                       value={this.state.name}
                       onChange={this.handleTextChange}
+                      required
                     />
                   </FormGroup>
                 </Col>
                 <Col md="6" sm="12">
                   <FormGroup className="form-label-group">
-                    <h5 className="my-1 text-bold-600">Duration</h5>{" "}
+                    <h5 className="my-1 text-bold-600">Duration MN</h5>{" "}
                     <Input
                       type="number"
                       placeholder="Duration"
@@ -95,6 +100,7 @@ class FormExercices extends Component {
                       name="Duree"
                       value={this.state.name}
                       onChange={this.handleTextChange}
+                      required
                     />
                   </FormGroup>
                 </Col>
@@ -108,6 +114,7 @@ class FormExercices extends Component {
                       name="activite"
                       value={this.state.name}
                       onChange={this.handleTextChange}
+                      required
                     />
                   </FormGroup>
                 </Col>

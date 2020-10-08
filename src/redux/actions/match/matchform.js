@@ -6,13 +6,11 @@ export const addMatch = (match) => {
       .post("http://127.0.0.1:8000/api/match", {
         matchName: match.matchName,
         adversaire: match.adversaire,
-        joue_a: match.joue_a,
-        journee: match.journee,
-        terrain: match.terrain,
+        date: match.date,
+        stade: match.stade,
         arbitre: match.arbitre,
-        equipe_id: match.equipe_id,
-        extra_time: match.extra_time,
-        
+        equipe: match.equipe,
+        tenue: match.tenue,
       })
       .then((response) => {
         dispatch({

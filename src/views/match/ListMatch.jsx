@@ -44,33 +44,25 @@ class ListMatch extends Component {
           <Col key={match.id}>
             <Card>
               <Card.Content>
-                <Card.Header>
-                  match Name : {match.matchName}
-                </Card.Header>
-                
+                <Card.Header>match Name : {match.matchName}</Card.Header>
+
                 <Card.Description>
                   <h4> adversaire : {match.adversaire}</h4>
                 </Card.Description>
                 <Card.Description>
-                  <h4> joue_a : {match.joue_a}</h4>
+                  <h4> date : {match.date}</h4>
                 </Card.Description>
-                <Card.Description>
-                  <h4>journee : {match.journee}</h4>
-                </Card.Description>
-                <Card.Description>
-                  <h4>terrain : {match.terrain}</h4>
-                </Card.Description>
+              
+              
                 <Card.Description>
                   <h4>arbitre : {match.arbitre}</h4>
                 </Card.Description>
                 <Card.Description>
-                  <h4>equipe_id : {match.equipe_id}</h4>
+                  <h4>equipe : {match.equipe}</h4>
                 </Card.Description>
                 <Card.Description>
-                  <h4>extra_time : {match.extra_time}</h4>
+                  <h4>tenue : {match.tenue}</h4>
                 </Card.Description>
-                
-               
               </Card.Content>
               <Card.Content extra>
                 <div className="ui two buttons">

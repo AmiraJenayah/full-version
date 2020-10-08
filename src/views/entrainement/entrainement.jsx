@@ -35,6 +35,7 @@ class Entrainement extends Component {
   handleOnSubmit = (event) => {
     event.preventDefault();
     this.props.addEntrainement(this.state);
+        history.push("/entrainement/entrainementList");
   };
   handleButt = (e) => {
                         e.preventDefault();
@@ -68,6 +69,7 @@ class Entrainement extends Component {
                       name="EntName"
                       value={this.state.name}
                       onChange={this.handleTextChange}
+                      required
                     />
                   </FormGroup>
                 </Col>
@@ -81,6 +83,7 @@ class Entrainement extends Component {
                       name="Period"
                       value={this.state.name}
                       onChange={this.handleTextChange}
+                      required
                     />
                   </FormGroup>
                 </Col>
@@ -95,6 +98,7 @@ class Entrainement extends Component {
                       name="Lieu"
                       value={this.state.name}
                       onChange={this.handleTextChange}
+                      required
                     />
                   </FormGroup>
                 </Col>
@@ -108,6 +112,7 @@ class Entrainement extends Component {
                       name="Horaire"
                       value={this.state.name}
                       onChange={this.handleTextChange}
+                      required
                     />
                   </FormGroup>
                 </Col>
@@ -120,6 +125,7 @@ class Entrainement extends Component {
                       name="Nb_exercice"
                       value={this.state.name}
                       onChange={this.handleTextChange}
+                      required
                     />
                   </FormGroup>
                 </Col>

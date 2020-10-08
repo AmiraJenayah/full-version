@@ -16,9 +16,10 @@ import {
    Button
 } from "reactstrap";
 import { Segment } from "semantic-ui-react";
+import { history } from "../../history";
+
 
 class FormPlayer extends Component {
-
   handleTextChange = (event) => {
     const {
       target: { name, value },
@@ -29,33 +30,24 @@ class FormPlayer extends Component {
   handleOnSubmit = (event) => {
     event.preventDefault();
     this.props.addPlayer(this.state);
-    
+     history.push("/players/PlayerList");
   };
-  handleChangeSpeed = (e) => this.setState({ speed: e.target.value });
-  handleChangeEndurance = (e) => this.setState({ endurance: e.target.value });
-  handleChangeTactical = (e) => this.setState({ tactical: e.target.value });
-  handleChangeTechnical = (e) => this.setState({ technical: e.target.value });
-  handleChangeAttack = (e) => this.setState({ attack: e.target.value });
-  handleChangeDefense = (e) => this.setState({ defense: e.target.value });
 
   state = {
-         
-             
     first_name: "",
     last_name: "",
     birthday: "",
-  numero_tenue:"",
+    numero_tenue: "",
     email: "",
     hauteur: "",
     poids: "",
     etatdeSante: "",
-    salaire : "",
-    primes:"",
-  
+    salaire: "",
+    primes: "",
+
     published: false,
     submitted: false,
   };
-
 
   render() {
     return (
@@ -81,6 +73,7 @@ class FormPlayer extends Component {
                     id="first_name_player"
                     placeholder="first name"
                     onChange={this.handleTextChange}
+                    required
                   />
                 </FormGroup>
               </Col>
@@ -93,6 +86,7 @@ class FormPlayer extends Component {
                     id="last_name_player"
                     placeholder="last name"
                     onChange={this.handleTextChange}
+                    required
                   />
                 </FormGroup>
               </Col>
@@ -105,6 +99,7 @@ class FormPlayer extends Component {
                     id="birthdayPlayer"
                     placeholder="birthday"
                     onChange={this.handleTextChange}
+                    required
                   />
                 </FormGroup>
               </Col>
@@ -117,6 +112,7 @@ class FormPlayer extends Component {
                     id="emailPlayer"
                     placeholder="Email"
                     onChange={this.handleTextChange}
+                    required
                   />
                 </FormGroup>
               </Col>
@@ -129,31 +125,36 @@ class FormPlayer extends Component {
                     id="t_shirt_numbe_player"
                     placeholder="num_tune"
                     onChange={this.handleTextChange}
+                    required
                   />
                 </FormGroup>
               </Col>
 
               <Col md="6" sm="12">
-                <Label for="hauteur"> Taille</Label>
+                <Label for="hauteur">hauteur (cm)</Label>
                 <FormGroup className="form-label-group">
                   <Input
-                    type="text"
+                    type="number"
                     name="hauteur"
                     id="hauteur"
                     placeholder="Size"
                     onChange={this.handleTextChange}
+                    required
                   />
                 </FormGroup>
               </Col>
               <Col md="6" sm="12">
-                <Label for="weightMulti">Weight</Label>
+                <Label for="weightMulti">Weight (kg)</Label>
                 <FormGroup className="form-label-group">
                   <Input
                     type="number"
                     name="poids"
                     id="weightMulti"
+                    min="60"
+                    max="110"
                     placeholder="weight"
                     onChange={this.handleTextChange}
+                    required
                   />
                 </FormGroup>
               </Col>
@@ -163,9 +164,10 @@ class FormPlayer extends Component {
                 <FormGroup className="form-label-group">
                   <Input
                     type="text"
-                    name="etatdesante"
+                    name="etatdeSante"
                     id="health"
                     onChange={this.handleTextChange}
+                    required
                   />
                 </FormGroup>
               </Col>
@@ -187,6 +189,7 @@ class FormPlayer extends Component {
                     id="salaire"
                     placeholder="Salary"
                     onChange={this.handleTextChange}
+                    required
                   />
                 </FormGroup>
               </Col>
@@ -195,10 +198,11 @@ class FormPlayer extends Component {
                 <FormGroup className="form-label-group">
                   <Input
                     type="number"
-                    name="prime"
+                    name="primes"
                     id="prime"
                     placeholder="Premium"
                     onChange={this.handleTextChange}
+                    required
                   />
                 </FormGroup>
               </Col>

@@ -69,6 +69,7 @@ class Competiton extends Component {
                       name="Compname"
                       value={this.state.name}
                       onChange={this.handleTextChange}
+                      required
                     />
                   </FormGroup>
                 </Col>
@@ -82,6 +83,7 @@ class Competiton extends Component {
                       name="Number_equipe"
                       value={this.state.name}
                       onChange={this.handleTextChange}
+                      required
                     />
                   </FormGroup>
                 </Col>
@@ -95,6 +97,7 @@ class Competiton extends Component {
                       name="Saison"
                       value={this.state.name}
                       onChange={this.handleTextChange}
+                      required
                     />
                   </FormGroup>
                 </Col>
@@ -107,6 +110,7 @@ class Competiton extends Component {
                       name="Prix"
                       value={this.state.name}
                       onChange={this.handleTextChange}
+                      required
                     />
                   </FormGroup>
                 </Col>

@@ -51,7 +51,6 @@ class PlayerList extends Component {
           <Col key={joueur.id}>
             <Card>
               <Card.Content>
-          
                 <Card.Header>
                   {joueur.first_name} {"   "}
                   {joueur.last_name}
@@ -85,7 +84,7 @@ class PlayerList extends Component {
                           </Table.Row>
                           <Table.Row>
                             <Table.Cell>
-                              <Label ribbon>taille</Label>
+                              <Label ribbon>hauteur</Label>
                             </Table.Cell>
                             <Table.Cell>{joueur.hauteur}</Table.Cell>
                           </Table.Row>
